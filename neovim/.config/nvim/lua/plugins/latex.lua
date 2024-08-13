@@ -6,7 +6,7 @@ return {
     },
     formatters = {
       latexindent = {
-        prepend_args = { "-m", "-l" },
+        prepend_args = { "-c=out/", "-m", "-l" },
       },
     },
   },

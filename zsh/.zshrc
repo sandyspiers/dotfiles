@@ -12,6 +12,15 @@ if [[ $(grep -i WSL /proc/version) ]]; then
     export LIBGL_ALWAYS_INDIRECT=1
 fi
 
+# Add a fix ssh fn, and run it every time we are in tmux
+# The socket may go stale, so just rerun fix_tmux_ssh()
+function fix_tmux_ssh() {
+    eval "$(tmux show-environment -s)"
+}
+if [ -n "${TMUX}" ]; then
+    fix_tmux_ssh
+fi
+
 # ssh agent settings
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
 

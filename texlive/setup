@@ -1,0 +1,11 @@
+#!/bin/bash
+
+tex=(
+    texlive-meta
+    perl-file-homedir
+)
+
+# raw install
+./installers/yeah "${tex[@]}"
+./installers/stow texlive
+

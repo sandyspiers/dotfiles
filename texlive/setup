@@ -3,9 +3,9 @@
 tex=(
     texlive-meta
     perl-file-homedir
+    libxcrypt-compat
 )
 
 # raw install
 ./installers/yeah "${tex[@]}"
 ./installers/stow texlive
-

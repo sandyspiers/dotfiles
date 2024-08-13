@@ -3,8 +3,23 @@
 langs=(
     juliaup
 
+    python
+    python-pip
+    python-pynvim
+    python-pipx
+    python-poetry
+
+    luarocks
+    lua51
+
+    npm
+
+    docker
 )
 
 # raw install
 ./installers/yeah "${langs[@]}"
 ./installers/stow "${langs[@]}"
+
+# run extras...
+sudo npm install -g neovim

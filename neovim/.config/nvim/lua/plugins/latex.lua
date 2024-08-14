@@ -6,6 +6,12 @@ return {
     },
     formatters = {
       latexindent = {
+        cwd = require("conform.util").root_file({
+          "localSettings.yaml",
+          "latexindent.yaml",
+          ".localSettings.yaml",
+          ".latexindent.yaml",
+        }),
         prepend_args = { "-c=out/", "-m", "-l" },
       },
     },

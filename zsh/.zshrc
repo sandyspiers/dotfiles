@@ -33,8 +33,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# bind ctrl+spc to auto suggetions accept
-# bindkey '^I' autosuggest-accept
+# bind shift+tab to auto suggetions accept
+bindkey '^[[Z' autosuggest-accept
 
 # quick configs
 alias vi="nvim"

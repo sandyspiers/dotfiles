@@ -7,4 +7,7 @@ vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a T
 vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
 vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
 
-vim.g.vimtex_view_method = "mupdf" -- Vimtex, use mupdf
+-- Vimtex pdf optiosn
+-- vim.g.vimtex_view_method = "zathura" -- or "mupdf"
+vim.g.vimtex_view_general_viewer = "okular"
+vim.g.vimtex_view_general_options = "--unique file:@pdf#src:@line@tex"

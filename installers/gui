@@ -5,6 +5,7 @@ gui=(
     firefox
     spotify
     mupdf
+    okular
 )
 
 # install

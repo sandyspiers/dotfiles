@@ -29,6 +29,8 @@ ide=(
     lazygit
 
     neovim
+
+    arttime
 )
 
 # raw install

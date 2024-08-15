@@ -43,6 +43,9 @@ alias conf="vi ~/dotfiles"
 alias zshconf="vi ~/.zshrc"
 alias vimconf="vi ~/.config/nvim"
 
+# pomotimers
+alias work="arttime --nolearn -g 25m;30m"
+
 # exa
 alias x="eza -a --icons=always"
 alias xx="x -l"

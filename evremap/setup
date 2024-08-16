@@ -1,8 +1,0 @@
-#!/bin/bash
-
-yay -Sy --needed --noconfirm evremap
-stow --target="$HOME" .
-sudo cp evremap.service /usr/lib/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable evremap.service
-sudo systemctl start evremap.service

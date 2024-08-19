@@ -27,24 +27,27 @@ configuration entries.
 )
 
 (defsrc
-  caps grv         i
+  esc grv
+  caps             i
               j    k    l
   lsft rsft
 )
 
 (deflayer default
-  @cap @grv        _
+  @esc @esc
+  @cap             _
               _    _    _
   _    _
 )
 
 (deflayer arrows
-  _    _           up
+  -    -
+  _                up
               left down rght
   _    _
 )
 
 (defalias
   cap (tap-hold-press 200 200 esc lctl)
-  grv (tap-hold-press 200 200 grv (layer-toggle arrows))
+  esc (tap-hold-press 200 200 grv (layer-toggle arrows))
 )

@@ -4,8 +4,8 @@ gui=(
     alacritty
     firefox
     spotify
-    mupdf
-    okular
+    zathura
+    zathura-pdf-mupdf
 )
 
 # install

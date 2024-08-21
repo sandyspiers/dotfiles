@@ -4,6 +4,7 @@ gui=(
     alacritty
     firefox
     spotify
+    mupdf
     zathura
     zathura-pdf-mupdf
 )

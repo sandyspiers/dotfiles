@@ -54,13 +54,13 @@ alias xr="x -T --git-ignore"
 # lazygit
 alias lg="lazygit"
 
-# pyenv
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-
 # zoxide
 eval "$(zoxide init zsh)"
 
 # Use startship prompt
 eval "$(starship init zsh)"
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

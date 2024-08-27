@@ -4,5 +4,5 @@
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown", "tex" },
-  command = "setlocal wrap linebreak",
+  command = "setlocal wrap linebreak spell",
 })

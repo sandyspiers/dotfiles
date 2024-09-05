@@ -1,53 +1,49 @@
-#|
-This minimal config changes Caps Lock to act as Caps Lock on quick tap, but
-if held, it will act as Left Ctrl. It also changes the backtick/grave key to
-act as backtick/grave on quick tap, but change ijkl keys to arrow keys on hold.
-
-This text between the two pipe+octothorpe sequences is a multi-line comment.
-|#
-
-;; Text after double-semicolons are single-line comments.
-
-#|
-One defcfg entry may be added, which is used for configuration key-pairs. These
-configurations change kanata's behaviour at a more global level than the other
-configuration entries.
-|#
-
 (defcfg
-  #|
-  This configuration will process all keys pressed inside of kanata, even if
-  they are not mapped in defsrc. This is so that certain actions can activate
-  at the right time for certain input sequences. By default, unmapped keys are
-  not processed through kanata due to a Windows issue related to AltGr. If you
-  use AltGr in your keyboard, you will likely want to follow the simple.kbd
-  file while unmapping lctl and ralt from defsrc.
-  |#
   process-unmapped-keys yes
 )
 
 (defsrc
-  esc grv
-  caps             i
-              j    k    l
-  lsft rsft
+  esc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(defvar
+  tap-time 200
+  hold-time 150
 )
 
 (deflayer default
-  @esc @esc
-  @cap             _
-              _    _    _
-  _    _
+  @grv
+  @grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab   q    @w   e    r    t    y    u    i    o    p    [    ]    \
+  @cap  @a   @s   @d   @f    g    h   @j   @k   @l   @;    '    ret
+  lsft  z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl  lmet lalt           spc            ralt rmet rctl
 )
 
 (deflayer arrows
-  -    -
-  _                up
-              left down rght
-  _    _
+  -
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    up   _    _    _    _    _
+  _    _    _    _    _    _    _    left down right _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
 )
 
 (defalias
-  cap (tap-hold-press 200 200 esc lctl)
-  esc (tap-hold-press 200 200 grv (layer-toggle arrows))
+  grv grv
+  cap (tap-hold-press $tap-time $hold-time esc lctl)
+  w (tap-hold $tap-time $hold-time w (layer-toggle arrows))
+  a (tap-hold $tap-time $hold-time a lmet)
+  s (tap-hold $tap-time $hold-time s lalt)
+  d (tap-hold $tap-time $hold-time d lctl)
+  f (tap-hold $tap-time $hold-time f lsft)
+  j (tap-hold $tap-time $hold-time j rsft)
+  k (tap-hold $tap-time $hold-time k rctl)
+  l (tap-hold $tap-time $hold-time l ralt)
+  ; (tap-hold $tap-time $hold-time ; rmet)
 )

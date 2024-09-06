@@ -4,6 +4,7 @@ tex=(
     texlive-meta
     perl-file-homedir
     libxcrypt-compat
+    biber
 )
 
 # raw install

@@ -16,6 +16,7 @@ langs=(
     npm
 
     docker
+    docker-compose
 )
 
 # raw install

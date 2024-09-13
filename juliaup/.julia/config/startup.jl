@@ -19,6 +19,12 @@ catch e
     println("Could not import OhMyREPL!")
 end
 
+try
+    import AbbreviatedStackTraces
+catch e
+    println("Could not import AbbreviatedStackTraces!")
+end
+
 function GetTestEnv()
     @eval begin
         import TestEnv

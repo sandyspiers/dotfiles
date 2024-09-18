@@ -31,17 +31,13 @@ source $ZSH/oh-my-zsh.sh
 if [[ ! -n "$SSH_CONNECTION" ]]; then
     # check if an agent is running, if not, start one
     if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-        echo "Creating agent"
         ssh-agent -t 4h > "$HOME/.ssh/ssh-agent.env"
     fi
     # if SSH_AUTH_SOCK doesnt exists, source env vars
     if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
-        echo "Sourcing agent"
         source "$HOME/.ssh/ssh-agent.env" > /dev/null
         ln -sf $SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
     fi
-else
-    echo "In SSH - not sourcing agent."
 fi
 
 # User configuration

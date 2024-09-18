@@ -28,7 +28,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # manage ssh (but only if im not already in an ssh)
-if [[ ! -n "SSH_CONNECTION" ]]; then
+if [[ ! -n "$SSH_CONNECTION" ]]; then
     # check if an agent is running, if not, start one
     if ! pgrep -u "$USER" ssh-agent > /dev/null; then
         echo "Creating agent"
@@ -40,6 +40,8 @@ if [[ ! -n "SSH_CONNECTION" ]]; then
         source "$HOME/.ssh/ssh-agent.env" > /dev/null
         ln -sf $SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
     fi
+else
+    echo "In SSH - not sourcing agent."
 fi
 
 # User configuration

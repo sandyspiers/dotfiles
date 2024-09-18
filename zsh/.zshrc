@@ -68,6 +68,9 @@ alias xr="x -T --git-ignore"
 # lazygit
 alias lg="lazygit"
 
+# reflector
+alias mirror-update="sudo reflector --verbose --country Australia --sort rate --latest 20 --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist"
+
 # zoxide
 eval "$(zoxide init zsh)"
 

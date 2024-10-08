@@ -82,3 +82,8 @@
 (setq TeX-engine 'luatex)
 (setq TeX-output-dir "out/")
 (setq +latex-viewers '(pdf-tools))
+
+;; Org
+(after! org
+  (+org-babel-load-jupyter-h 'jupyter-julia)
+  (org-babel-jupyter-override-src-block "julia"))

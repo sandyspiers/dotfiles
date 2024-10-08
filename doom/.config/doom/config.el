@@ -82,4 +82,3 @@
 (setq TeX-engine 'luatex)
 (setq TeX-output-dir "out/")
 (setq +latex-viewers '(pdf-tools))
-

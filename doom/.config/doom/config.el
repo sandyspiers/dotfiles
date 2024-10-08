@@ -87,3 +87,19 @@
 (after! org
   (+org-babel-load-jupyter-h 'jupyter-julia)
   (org-babel-jupyter-override-src-block "julia"))
+(after! ox-latex
+  (add-to-list 'org-latex-classes
+               '("draught"
+                 "\\documentclass{draught}
+                [NO-DEFAULT-PACKAGES]
+                [NO-PACKAGES]
+                [NO-EXTRA]"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+  (setq org-latex-hyperref-template "")
+  (setq org-latex-hyperref-template)
+  )
+(setq org-latex-compiler "lualatex")

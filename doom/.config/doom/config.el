@@ -76,7 +76,10 @@
 
 ;; Julia
 (setq lsp-julia-package-dir nil)
-(setq lsp-julia-default-environment "~/.julia/environments/v1.10/")
+(setq lsp-julia-flags '("--startup-file=no"
+                        "--history-file=no"
+                        "--sysimage=/home/sandy/dotfiles/jl-sys/lsp.so"))
+(setq lsp-julia-default-environment "~/.julia/environments/v1.11/")
 
 ;; Latex
 (setq TeX-engine 'luatex)

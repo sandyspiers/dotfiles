@@ -1,4 +1,3 @@
-using Base: glue_src_bitchunks
 try
     import Pkg
     if isfile("Project.toml") && isfile("Manifest.toml")
@@ -18,12 +17,6 @@ try
     import OhMyREPL
 catch e
     println("Could not import OhMyREPL!")
-end
-
-try
-    import AbbreviatedStackTraces
-catch e
-    println("Could not import AbbreviatedStackTraces!")
 end
 
 function GetTestEnv()

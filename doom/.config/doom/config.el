@@ -100,5 +100,5 @@
                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
   (setq org-latex-hyperref-template "")
+  (setq org-latex-compiler "lualatex")
   )
-(setq org-latex-compiler "lualatex")

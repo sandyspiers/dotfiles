@@ -86,7 +86,34 @@
 ;; Org
 (after! org
   (+org-babel-load-jupyter-h 'jupyter-julia)
-  (org-babel-jupyter-override-src-block "julia"))
+  (org-babel-jupyter-override-src-block "julia")
+  (setq org-preview-latex-process-alist
+        '((lualatex :programs
+           ("latex" "convert")
+           :description "pdf > png" :message "you need to install the programs: latex and imagemagick." :image-input-type "pdf" :image-output-type "png" :image-size-adjust
+           (1.0 . 1.0)
+           :latex-compiler
+           ("lualatex --interaction=nonstopmode --output-directory=%o %f")
+           :image-converter
+           ("convert -density %D -trim -antialias %f -quality 100 %O"))))
+  (setq org-format-latex-header
+        "\\documentclass[empty]{draught}
+        \\pagestyle{empty} % do not remove
+        % The settings below are copied from fullpage.sty
+        \\setlength{\\textwidth}{\\paperwidth}
+        \\addtolength{\\textwidth}{-3cm}
+        \\setlength{\\oddsidemargin}{1.5cm}
+        \\addtolength{\\oddsidemargin}{-2.54cm}
+        \\setlength{\\evensidemargin}{\\oddsidemargin}
+        \\setlength{\\textheight}{\\paperheight}
+        \\addtolength{\\textheight}{-\\headheight}
+        \\addtolength{\\textheight}{-\\headsep}
+        \\addtolength{\\textheight}{-\\footskip}
+        \\addtolength{\\textheight}{-3cm}
+        \\setlength{\\topmargin}{1.5cm}
+        \\addtolength{\\topmargin}{-2.54cm}")
+  (setq org-preview-latex-default-process 'lualatex)
+  (setq org-preview-latex-process 'lualatex))
 (after! ox-latex
   (add-to-list 'org-latex-classes
                '("draught"
@@ -99,6 +126,7 @@
                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+  (setq org-latex-default-class "draught")
   (setq org-latex-hyperref-template "")
   (setq org-latex-compiler "lualatex")
   (setq org-latex-toc-command "")

@@ -101,4 +101,18 @@
                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
   (setq org-latex-hyperref-template "")
   (setq org-latex-compiler "lualatex")
+  (setq org-latex-toc-command "")
   )
+(after! jupyter
+  (setq jupyter-use-zmq nil)
+  (defun my-jupyter-api-http-request--ignore-login-error-a
+      (func url endpoint method &rest data)
+    (cond
+     ((member endpoint '("login"))
+      (ignore-error (jupyter-api-http-error)
+        (apply func url endpoint method data)))
+     (:else
+      (apply func url endpoint method data))))
+  (advice-add
+   #'jupyter-api-http-request
+   :around #'my-jupyter-api-http-request--ignore-login-error-a))

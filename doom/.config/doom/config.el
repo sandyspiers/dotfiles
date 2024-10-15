@@ -112,28 +112,13 @@
            ("lualatex --interaction=nonstopmode --output-directory=%o %f")
            :image-converter
            ("convert -density %D -trim -antialias %f -quality 100 %O"))))
-  (setq org-format-latex-header
-        "\\documentclass[empty]{draught}
-        \\pagestyle{empty} % do not remove
-        % The settings below are copied from fullpage.sty
-        \\setlength{\\textwidth}{\\paperwidth}
-        \\addtolength{\\textwidth}{-3cm}
-        \\setlength{\\oddsidemargin}{1.5cm}
-        \\addtolength{\\oddsidemargin}{-2.54cm}
-        \\setlength{\\evensidemargin}{\\oddsidemargin}
-        \\setlength{\\textheight}{\\paperheight}
-        \\addtolength{\\textheight}{-\\headheight}
-        \\addtolength{\\textheight}{-\\headsep}
-        \\addtolength{\\textheight}{-\\footskip}
-        \\addtolength{\\textheight}{-3cm}
-        \\setlength{\\topmargin}{1.5cm}
-        \\addtolength{\\topmargin}{-2.54cm}")
+  (setq org-format-latex-header "\\documentclass[empty]{vinyl}")
   (setq org-preview-latex-default-process 'lualatex)
   (setq org-preview-latex-process 'lualatex))
 (after! ox-latex
   (add-to-list 'org-latex-classes
-               '("draught"
-                 "\\documentclass{draught}
+               '("vinyl"
+                 "\\documentclass[note]{vinyl}
                 [NO-DEFAULT-PACKAGES]
                 [NO-PACKAGES]
                 [NO-EXTRA]"
@@ -142,7 +127,7 @@
                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-  (setq org-latex-default-class "draught")
+  (setq org-latex-default-class "vinyl")
   (setq org-latex-hyperref-template "")
   (setq org-latex-compiler "lualatex")
   (setq org-latex-toc-command "")

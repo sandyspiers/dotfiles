@@ -89,7 +89,18 @@
 (setq +latex-viewers '(pdf-tools))
 
 ;; Org
+(after! mixed-pitch
+  (setq mixed-pitch-set-height t)
+  (setq variable-pitch-serif-font doom-serif-font)
+  (set-face-attribute 'variable-pitch nil :height 1.3))
 (after! org
+  (setq org-hide-emphasis-markers t)
+  (font-lock-add-keywords 'org-mode
+                          '(("^ *\\([-]\\) "
+                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (add-hook 'org-mode-hook 'mixed-pitch-mode)
+  (add-hook 'org-mode-hook 'visual-line-mode)
   (+org-babel-load-jupyter-h 'jupyter-julia)
   (org-babel-jupyter-override-src-block "julia")
   (setq org-preview-latex-process-alist

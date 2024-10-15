@@ -50,3 +50,5 @@
 ;; (unpin! t)
 
 (unpin! jupyter)
+
+(package! org-bullets)

@@ -103,18 +103,8 @@
   (add-hook 'org-mode-hook 'visual-line-mode)
   (+org-babel-load-jupyter-h 'jupyter-julia)
   (org-babel-jupyter-override-src-block "julia")
-  (setq org-preview-latex-process-alist
-        '((lualatex :programs
-           ("latex" "convert")
-           :description "pdf > png" :message "you need to install the programs: latex and imagemagick." :image-input-type "pdf" :image-output-type "png" :image-size-adjust
-           (1.0 . 1.0)
-           :latex-compiler
-           ("lualatex --interaction=nonstopmode --output-directory=%o %f")
-           :image-converter
-           ("convert -density %D -trim -antialias %f -quality 100 %O"))))
   (setq org-format-latex-header "\\documentclass[empty]{vinyl}")
-  (setq org-preview-latex-default-process 'lualatex)
-  (setq org-preview-latex-process 'lualatex))
+  (setq org-preview-latex-default-process 'imagemagick))
 (after! ox-latex
   (add-to-list 'org-latex-classes
                '("vinyl"
@@ -131,6 +121,7 @@
   (setq org-latex-hyperref-template "")
   (setq org-latex-compiler "lualatex")
   (setq org-latex-toc-command "")
+  (setq org-latex-default-packages-alist nil)
   )
 (after! jupyter
   (setq jupyter-use-zmq nil)

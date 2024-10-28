@@ -101,6 +101,7 @@
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   (add-hook 'org-mode-hook 'mixed-pitch-mode)
   (add-hook 'org-mode-hook 'visual-line-mode)
+  (setq org-image-actual-width nil)
   (+org-babel-load-jupyter-h 'jupyter-julia)
   (org-babel-jupyter-override-src-block "julia")
   (setq org-format-latex-header "\\documentclass[empty]{vinyl}")

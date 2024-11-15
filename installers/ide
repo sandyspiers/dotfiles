@@ -28,6 +28,7 @@ ide=(
     zoxide
     eza
     lazygit
+    yazi
 
     neovim
 

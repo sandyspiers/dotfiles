@@ -55,6 +55,7 @@ alias vimconf="vi ~/.config/nvim"
 
 # julia
 alias jl="julia --sysimage=/home/sandy/dotfiles/jl-sys/base.so"
+export JULIA_LSP_JULIA_BIN="julia --sysimage=/home/sandy/dotfiles/jl-sys/lsp.so"
 
 # pomotimers
 alias work="arttime --nolearn -g 25m;30m"

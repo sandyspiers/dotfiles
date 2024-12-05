@@ -54,7 +54,7 @@ alias zshconf="vi ~/.zshrc"
 alias vimconf="vi ~/.config/nvim"
 
 # julia
-alias jl="julia --sysimage=/home/sandy/dotfiles/jl-sys/base.so"
+alias jl="julia -q --sysimage=/home/sandy/dotfiles/jl-sys/base.so"
 export JULIA_LSP_JULIA_BIN="julia --sysimage=/home/sandy/dotfiles/jl-sys/lsp.so"
 
 # pomotimers

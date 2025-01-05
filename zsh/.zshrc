@@ -88,7 +88,7 @@ function y() {
 eval "$(zoxide init zsh)"
 
 # Use startship prompt
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"

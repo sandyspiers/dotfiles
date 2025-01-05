@@ -2,6 +2,8 @@
 
 > chaos, configured chaotically
 
+Zellij, Helix, Nushell, Kanata...
+
 ## Install
 
 ```bash

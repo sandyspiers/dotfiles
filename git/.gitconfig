@@ -1,9 +1,9 @@
 [user]
 	name = sandyspiers
-	email = sandy.spiers@curtin.edu.au
+	email = sandy.spiers@gmail.edu.au
 [credential]
 	helper = store
 [init]
 	defaultBranch = main
 [core]
-	editor = nvim
+	editor = helix

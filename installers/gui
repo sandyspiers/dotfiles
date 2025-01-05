@@ -5,8 +5,6 @@ gui=(
     firefox
     spotify
     mupdf
-    zathura
-    zathura-pdf-mupdf
 )
 
 # install

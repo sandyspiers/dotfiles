@@ -4,6 +4,8 @@ alias conf = hx ~/dotfiles
 
 alias ze = zellij
 
+alias jl = julia -q --sysimage=/home/sandy/dotfiles/julia-sysimages/base.so
+
 # 
 alias lg = lazygit
 

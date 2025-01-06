@@ -13,6 +13,6 @@ langs=(
 )
 
 # raw install
-./installers/stow "${langs[@]}"
-./installers/yeah "${langs[@]}"
+./install/stow "${langs[@]}"
+./install/yeah "${langs[@]}"
 

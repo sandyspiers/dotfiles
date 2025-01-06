@@ -11,4 +11,4 @@ gnome=(
 )
 
 # install
-./installers/yeah "${gnome[@]}"
+./install/yeah "${gnome[@]}"

@@ -32,8 +32,8 @@ ide=(
 )
 
 # raw install
-./installers/stow "${ide[@]}"
-./installers/yeah "${ide[@]}"
+./install/stow "${ide[@]}"
+./install/yeah "${ide[@]}"
 
 # update yazi
 ya pack -i

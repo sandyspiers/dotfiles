@@ -33,7 +33,7 @@ function GetPkgTemplate()
             ["sandyspiers <sandy.spiers@curtin.edu.au> and contributors"],
             ".",
             "github.com",
-            v"1.6.7",
+            v"1.10.7",
             PkgTemplates.Plugin[
                 ProjectFile(v"0.1.0-DEV"),
                 SrcDir(),

@@ -1,0 +1,10 @@
+[language-server.julia]
+command = "julia"
+args = [
+  "--sysimage=/home/sandy/dotfiles/jl-sys/lsp.so",
+  "--startup-file=no",
+  "--history-file=no",
+  "--quiet",
+  "-e",
+  "using LanguageServer; runserver()",
+]

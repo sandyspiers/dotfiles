@@ -2,6 +2,12 @@ theme = "dracula"
 
 [editor]
 line-number = "relative"
+shell = ["nu", "-c"]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
 
 [editor.file-picker]
 hidden = false

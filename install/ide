@@ -1,0 +1,39 @@
+#!/bin/bash
+
+ide=(
+    git
+    stow
+    man-db
+    htop
+    btop
+    curl
+    wget
+    openssh
+    github-cli
+    unzip
+
+    fd
+    ripgrep
+    neofetch
+    reflector
+
+    fish
+    carapace
+    nushell
+
+    zellij
+    yazi
+    helix
+    
+    starship
+    zoxide
+    eza
+    lazygit
+)
+
+# raw install
+./installers/stow "${ide[@]}"
+./installers/yeah "${ide[@]}"
+
+# update yazi
+ya pack -i

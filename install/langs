@@ -5,23 +5,14 @@ langs=(
 
     python
     python-pip
-    python-pynvim
-    python-pipx
     python-poetry
     pyenv
-
-    luarocks
-    lua51
-
-    npm
 
     docker
     docker-compose
 )
 
 # raw install
-./installers/yeah "${langs[@]}"
 ./installers/stow "${langs[@]}"
+./installers/yeah "${langs[@]}"
 
-# run extras...
-sudo npm install -g neovim

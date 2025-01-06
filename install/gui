@@ -8,5 +8,5 @@ gui=(
 )
 
 # install
-./installers/yeah "${gui[@]}"
 ./installers/stow "${gui[@]}"
+./installers/yeah "${gui[@]}"

@@ -8,5 +8,5 @@ tex=(
 )
 
 # raw install
-./installers/yeah "${tex[@]}"
 ./installers/stow texlive
+./installers/yeah "${tex[@]}"

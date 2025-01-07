@@ -1,2 +1,2 @@
-*-precompile.jl
+_*.jl
 *.so

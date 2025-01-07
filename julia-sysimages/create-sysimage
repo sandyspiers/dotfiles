@@ -1,6 +1,0 @@
-#!/bin/bash
-rm *-precompile.jl
-rm *.so
-julia --startup-file=no --trace-compile=base-precompile.jl base-tests.jl
-julia --startup-file=no --trace-compile=lsp-precompile.jl lsp-tests.jl
-julia --startup-file=no create-sysimage.jl

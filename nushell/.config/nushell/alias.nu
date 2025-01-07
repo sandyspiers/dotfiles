@@ -1,7 +1,7 @@
 # 
 alias hx = helix
 alias conf = hx ~/dotfiles
-
+alias ex = exit
 alias ze = zellij
 
 alias jl = julia -q --sysimage=/home/sandy/dotfiles/julia-sysimages/base.so

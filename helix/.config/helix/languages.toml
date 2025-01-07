@@ -1,7 +1,7 @@
 [language-server.julia]
 command = "julia"
 args = [
-  "--sysimage=/home/sandy/dotfiles/jl-sys/lsp.so",
+  "--sysimage=/home/sandy/dotfiles/julia-sysimages/lsp.so",
   "--startup-file=no",
   "--history-file=no",
   "--quiet",

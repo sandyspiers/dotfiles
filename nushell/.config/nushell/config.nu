@@ -7,6 +7,9 @@ source alias.nu
 # Completions
 source completions.nu
 
+# ssh agent
+source ssh.nu
+
 # Zoxide
 source ~/.zoxide.nu
 

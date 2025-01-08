@@ -3,6 +3,8 @@ theme = "dracula"
 [editor]
 line-number = "relative"
 shell = ["nu", "-c"]
+true-color = true
+undercurl = true
 
 [editor.cursor-shape]
 insert = "bar"

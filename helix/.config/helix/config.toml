@@ -5,6 +5,7 @@ line-number = "relative"
 shell = ["nu", "-c"]
 true-color = true
 undercurl = true
+bufferline = "always"
 
 [editor.cursor-shape]
 insert = "bar"

@@ -27,7 +27,7 @@
 )
 
 (deflayer default
-  @esc _  @s  @d  @f  _   _   @j  @k  _  _
+  @esc _  @s  @d  @f  _   _   @j  @k  @l _
 )
 
 (deflayer arrows

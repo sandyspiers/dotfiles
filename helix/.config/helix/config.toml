@@ -15,3 +15,6 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
+[keys.normal]
+S-ret = ":pipe-to zellij-repl"
+

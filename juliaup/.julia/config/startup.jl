@@ -15,6 +15,7 @@ end
 
 try
     import OhMyREPL
+    OhMyREPL.enable_autocomplete_brackets(false)
 catch e
     println("Could not import OhMyREPL!")
 end

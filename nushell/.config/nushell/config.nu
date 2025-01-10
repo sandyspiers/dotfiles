@@ -4,6 +4,9 @@ $env.config.show_banner = false
 # aliases
 source alias.nu
 
+# pipelines
+source pipes.nu
+
 # Completions
 source completions.nu
 

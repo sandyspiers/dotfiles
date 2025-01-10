@@ -2,7 +2,7 @@ theme = "dracula"
 
 [editor]
 line-number = "relative"
-shell = ["nu", "-c"]
+shell = ["nu", "--stdin", "--config", "~/.config/nushell/pipes.nu", "-c"]
 true-color = true
 undercurl = true
 bufferline = "always"

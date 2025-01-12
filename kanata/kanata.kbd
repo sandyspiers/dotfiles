@@ -1,5 +1,11 @@
 (defcfg
   process-unmapped-keys yes
+  linux-dev-names-exclude (
+    "foostan Corne v4"
+    "foostan Corne v4 Mouse"
+    "foostan Corne v4 Consumer Control"
+    "foostan Corne v4 Keyboard"
+  )
 )
 
 (defsrc

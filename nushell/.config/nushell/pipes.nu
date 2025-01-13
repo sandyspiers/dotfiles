@@ -3,8 +3,8 @@ def fx [] {
 }
 
 def zellij-repl [] {
-	zellij action move-focus right
+	zellij pipe "zjpane::focus::REPL"
 	zellij action write-chars $"($in)"
-	zellij action move-focus left
+	zellij action focus-previous-pane
 }
 

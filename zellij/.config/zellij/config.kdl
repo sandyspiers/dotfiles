@@ -152,7 +152,7 @@ keybinds clear-defaults=true {
         bind "Alt o" { MoveTab "right"; }
     }
     shared_except "locked" "renametab" "renamepane" {
-        bind "Ctrl q" { Quit; }
+        bind "Alt q" { Quit; }
     }
     shared_except "locked" "entersearch" {
         bind "enter" { SwitchToMode "locked"; }
@@ -233,12 +233,14 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
+    zjpane location="file:/home/sandy/.config/zellij/plugins/zjpane.wasm"
 }
 
 // Plugins to load in the background when a new session starts
 // eg. "file:/path/to/my-plugin.wasm"
 // eg. "https://example.com/my-plugin.wasm"
 load_plugins {
+    zjpane
 }
  
 // Use a simplified UI without special fonts (arrow glyphs)

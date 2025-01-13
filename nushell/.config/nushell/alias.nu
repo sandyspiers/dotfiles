@@ -9,6 +9,9 @@ alias jl = julia -q --sysimage=/home/sandy/dotfiles/julia-sysimages/base.so
 # 
 alias lg = lazygit
 
+# repl setup
+alias repl = zellij action rename-pane "REPL"
+
 # yazi
 def --env y [...args] {
 	let tmp = (mktemp -t "yazi-cwd.XXXXXX")

@@ -2,6 +2,9 @@
 $env.SHELL = "nu"
 $env.EDITOR = "helix"
 
+# pyenv
+$env.PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root)/shims")
+
 # Zoxide
 zoxide init nushell | save -f ~/.zoxide.nu
 

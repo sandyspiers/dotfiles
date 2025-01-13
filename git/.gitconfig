@@ -7,3 +7,5 @@
 	defaultBranch = main
 [core]
 	editor = helix
+[alias]
+	root = rev-parse --show-toplevel

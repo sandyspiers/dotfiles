@@ -1,13 +1,15 @@
-# 
+# basic
 alias hx = helix
 alias conf = hx ~/dotfiles
 alias ex = exit
 alias ze = zellij
 
+# julia
 alias jl = julia -q --sysimage=/home/sandy/dotfiles/julia-sysimages/base.so
 
-# 
+# git
 alias lg = lazygit
+alias gr = git root
 
 # repl setup
 alias repl = zellij action rename-pane "REPL"

@@ -3,8 +3,10 @@ def fx [] {
 }
 
 def zellij-repl [] {
-	zellij pipe "zjpane::focus::REPL"
+	zellij action rename-pane "REPL_SENDER"
+ 	zellij pipe "zjpane::focus::REPL"
 	zellij action write-chars $"($in)"
-	zellij action focus-previous-pane
+ 	zellij pipe "zjpane::focus::REPL_SENDER"
+	zellij action undo-rename-pane
 }
 

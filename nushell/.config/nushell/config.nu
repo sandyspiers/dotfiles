@@ -17,4 +17,4 @@ source ssh.nu
 source ~/.zoxide.nu
 
 # Starship prompt
-use ~/.cache/starship/init.nu
+use ~/.starship.nu

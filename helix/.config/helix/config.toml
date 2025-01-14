@@ -17,4 +17,5 @@ hidden = false
 
 [keys.normal]
 S-ret = ":pipe-to zellij-repl"
+"\\" = ":pipe-to zellij-repl"
 

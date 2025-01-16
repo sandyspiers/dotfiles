@@ -1,8 +1,13 @@
 # basic
 alias hx = helix
+alias hxi = hx $in
 alias conf = hx ~/dotfiles
 alias ex = exit
 alias ze = zellij
+alias fd = fd -u
+
+# latex
+alias tex = latexmk
 
 # julia
 alias jl = julia -q --sysimage=/home/sandy/dotfiles/julia-sysimages/base.so

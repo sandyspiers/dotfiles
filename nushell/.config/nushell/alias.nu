@@ -4,7 +4,7 @@ alias hxi = hx $in
 alias conf = hx ~/dotfiles
 alias ex = exit
 alias ze = zellij
-alias fd = fd -u
+alias fd = fd -H
 
 # latex
 alias tex = latexmk

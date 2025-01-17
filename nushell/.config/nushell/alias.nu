@@ -7,7 +7,7 @@ alias ze = zellij
 alias fd = fd -H
 
 # latex
-alias tex = latexmk
+alias tex = latexmk --interaction=nonstopmode
 
 # julia
 alias jl = julia -q --sysimage=/home/sandy/dotfiles/julia-sysimages/base.so

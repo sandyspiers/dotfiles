@@ -20,6 +20,12 @@ catch e
     println("Could not import OhMyREPL!")
 end
 
+try
+    using Infiltrator: @infiltrate
+catch e
+    println("Could not import Infiltrator!")
+end
+
 function GetTestEnv()
     @eval begin
         import TestEnv

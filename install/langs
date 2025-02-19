@@ -5,8 +5,7 @@ langs=(
 
     python
     python-pip
-    python-poetry
-    pyenv
+    uv
 
     docker
     docker-compose

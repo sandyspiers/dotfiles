@@ -10,7 +10,7 @@ alias fd = fd -H
 alias tex = latexmk --interaction=nonstopmode
 
 # julia
-alias jl = julia -q --sysimage=/home/sandy/dotfiles/julia-sysimages/base.so
+alias jl = julia -q --sysimage=/home/sandy/dotfiles/juliasys/base.so
 
 # git
 alias lg = lazygit

@@ -1,4 +1,12 @@
 try
+    import REPL
+    REPL.GlobalOptions.auto_indent = false
+    REPL.LineEdit.options(s::REPL.LineEdit.PromptState) = REPL.GlobalOptions
+catch e
+    println("Could not turn off auto-indenting!")
+end
+
+try
     import Pkg
     if isfile("Project.toml") && isfile("Manifest.toml")
         Pkg.activate(".")

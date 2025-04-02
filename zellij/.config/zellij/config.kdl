@@ -5,6 +5,13 @@
 keybinds clear-defaults=true {
     locked {
         bind "Alt g" { SwitchToMode "normal"; }
+        bind "Alt z" { SwitchToMode "normal"; }
+    }
+    normal {
+        bind "j" {
+            SwitchToMode "locked";
+            Run "nu" "-e" "zellij-start-julia-repl";
+        }
     }
     pane {
         bind "left" { MoveFocus "left"; }
@@ -285,7 +292,7 @@ default_layout "compact"
 //   - true (default)
 //   - false
 // 
-// mouse_mode false
+mouse_mode false
  
 // Toggle having pane frames around the panes
 // Options:

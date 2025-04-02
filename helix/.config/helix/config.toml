@@ -1,11 +1,21 @@
 theme = "dracula"
 
 [editor]
-line-number = "relative"
+line-number = "absolute"
 shell = ["nu", "--stdin", "--config", "~/.config/nushell/pipes.nu", "-c"]
 true-color = true
 undercurl = true
 bufferline = "always"
+
+# Minimum severity to show a diagnostic after the end of a line:
+end-of-line-diagnostics = "warning"
+
+[editor.inline-diagnostics]
+# Minimum severity to show a diagnostic on the primary cursor's line.
+# Note that `cursor-line` diagnostics are hidden in insert mode.
+cursor-line = "warning"
+# Minimum severity to show a diagnostic on other lines:
+other-lines = "error"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -16,6 +26,11 @@ select = "underline"
 hidden = false
 
 [keys.normal]
-S-ret = ":pipe-to zellij-repl"
 "\\" = ":pipe-to zellij-repl"
+
+[keys.normal.space]
+space = ":write"
+
+[keys.normal.space.g]
+f = "changed_file_picker"
 

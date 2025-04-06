@@ -17,3 +17,8 @@ def zellij-repl [] {
 	zellij action undo-rename-pane
 }
 
+def mirror-update [] {
+	sudo reflector --verbose --country Australia --sort rate --latest 20 --save /etc/pacman.d/mirrorlist
+	open /etc/pacman.d/mirrorlist
+}
+

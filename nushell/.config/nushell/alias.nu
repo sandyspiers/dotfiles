@@ -5,6 +5,7 @@ alias conf = hx ~/dotfiles
 alias ex = exit
 alias ze = zellij
 alias fd = fd -H
+alias ll = ls -a
 
 # latex
 alias tex = latexmk --interaction=nonstopmode

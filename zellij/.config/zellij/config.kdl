@@ -232,7 +232,7 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
-    zjpane location="file:/home/sandy/.config/zellij/plugins/zjpane.wasm"
+    zjpane location="file:$HOME/.config/zellij/plugins/zjpane.wasm"
 }
 
 // Plugins to load in the background when a new session starts
@@ -271,7 +271,7 @@ default_shell "nu"
 // The name of the default layout to load on startup
 // Default: "default"
 // 
-default_layout "compact"
+default_layout "status"
  
 // The folder in which Zellij will look for layouts
 // (Requires restart)

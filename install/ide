@@ -37,3 +37,6 @@ ide=(
 
 # update yazi
 ya pack -i
+
+# install zellij stuff
+./zellij/.config/zellij/plug.sh

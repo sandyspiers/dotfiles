@@ -1,8 +1,8 @@
 tab_template name="ui" {
-   children
    pane size=1 borderless=false {
        plugin location="status-bar"
    }
+   children
 }
 
 swap_tiled_layout name="vertical" {

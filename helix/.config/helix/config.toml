@@ -6,6 +6,7 @@ shell = ["nu", "--stdin", "--config", "~/.config/nushell/pipes.nu", "-c"]
 true-color = true
 undercurl = true
 bufferline = "always"
+auto-save.after-delay.enable = true
 
 end-of-line-diagnostics = "error"
 [editor.inline-diagnostics]
@@ -21,6 +22,8 @@ hidden = false
 
 [keys.normal]
 "\\" = ":pipe-to zellij-repl"
+S-h = ":bp"
+S-l = ":bn"
 
 [keys.normal.space]
 space = ":write"

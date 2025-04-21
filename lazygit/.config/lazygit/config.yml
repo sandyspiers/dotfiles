@@ -3,3 +3,5 @@ gui:
   # One of: '2' | '3' | empty string (default)
   # If empty, do not show icons.
   nerdFontsVersion: "3"
+
+promptToReturnFromSubprocess: false

@@ -28,15 +28,22 @@ function _csys(args)
         return 1
     end
     name = args[1]
+    name_short = split(name, ".")[1]
     modules = args[2:end]
-    precomp_file = "_precompile_statements.jl"
+    precomp_file = "_$(name_short)_precompile_statements.jl"
     @info "Creating a sysimage named $name with modules $modules..."
 
-    @info "Running test set and saving precompile"
-    try
-        run(`julia --startup-file=no --trace-compile=$precomp_file -e $(_get_test_string(modules))`)
-    catch e
-        @warn "Some test have failed! We will continue to try make sys image, but please check the output from unit tests to confirm suitability."
+    @info "Looking for precompile file $(precomp_file)"
+    if !isfile(precomp_file)
+        @info "No precompilation file found, running unit tests..."
+        @info "Running test set and saving precompile"
+        try
+            run(`julia --startup-file=no --trace-compile=$precomp_file -e $(_get_test_string(modules))`)
+        catch e
+            @warn "Some test have failed! We will continue to try make sys image, but please check the output from unit tests to confirm suitability."
+        end
+    else
+        @info "Found a precompile file, reusing it!"
     end
 
     @info "Compiling sysimage..."

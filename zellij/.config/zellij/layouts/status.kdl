@@ -1,5 +1,6 @@
 layout {
     default_tab_template {
+        children
         pane size=1 borderless=true {
             plugin location="file:$HOME/.config/zellij/plugins/zjstatus.wasm" {
                 // plugin configuration...
@@ -59,6 +60,5 @@ layout {
                 datetime_timezone          "Australia/Perth"
             }
         }
-        children
     }
 }

@@ -26,6 +26,9 @@
 #
 default_flags: "gh"
 
+# too verbose otherwise
+show_matching_characters_on_path_searches: false
+
 ###############################################################
 # Terminal's title
 # If you want the terminal's title to be updated when you change

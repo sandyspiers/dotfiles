@@ -18,3 +18,6 @@ source ~/.zoxide.nu
 
 # Starship prompt
 use ~/.starship.nu
+
+# I. Am. BROOT.
+use '/home/sandy/.config/broot/launcher/nushell/br' *

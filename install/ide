@@ -23,6 +23,7 @@ ide=(
 
     zellij
     yazi
+    broot
     helix
     
     starship

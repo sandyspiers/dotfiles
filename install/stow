@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# install stow
+if ! command -v stow &>/dev/null; then
+    echo "Installing stow!"
+    cd ~ || exit
+
+    sudo pacman -Syu --noconfirm
+    sudo pacman -Sy --noconfirm --needed git base-devel stow
+
+    cd - || exit
+fi
+
 echo -n "Stowing: "
 for pkg in "$@"; do
     if [ -d "$pkg" ]; then

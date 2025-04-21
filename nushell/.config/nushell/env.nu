@@ -2,6 +2,9 @@
 $env.SHELL = "nu"
 $env.EDITOR = "helix"
 
+# add localbin
+$env.PATH = ($env.PATH | prepend "/home/sandy/.local/bin")
+
 # Display environment
 if not (open /proc/version | grep WSL | is-empty) {
   let ip = (ip route list default | split column " " | get column3 | to text | str trim)

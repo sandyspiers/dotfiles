@@ -1,2 +1,3 @@
 launcher
-skins
+skins/*
+!/skins/dracula.hjson

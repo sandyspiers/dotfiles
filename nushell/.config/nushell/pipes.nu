@@ -29,3 +29,9 @@ def fmd [] {
 def bt [] {
 	"`"
 }
+
+def md [file: string] {
+	let out_file = ($file | str replace ".md" ".html")
+	pandoc -s --toc $file -o $out_file		
+	xdg-open $out_file
+}

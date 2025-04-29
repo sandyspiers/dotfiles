@@ -22,3 +22,6 @@ def mirror-update [] {
 	open /etc/pacman.d/mirrorlist
 }
 
+def fmd [] {
+	^fmt -u -w 85
+}

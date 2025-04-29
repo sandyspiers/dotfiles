@@ -2,7 +2,7 @@ metadata:
   keywords:
     - 'Dracula theme'
 
-pdf-engine: xelatex
+pdf-engine: lualatex
 highlight-style: /home/sandy/.config/pandoc/dracula.theme
 
 variables:

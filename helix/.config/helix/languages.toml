@@ -12,3 +12,8 @@ args = [
   "-e",
   "using LanguageServer; runserver()",
 ]
+
+[[language]]
+name = "markdown"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "markdown"] }

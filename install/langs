@@ -8,6 +8,7 @@ langs=(
     uv
 
     marksman
+    prettier
 
     docker
     docker-compose

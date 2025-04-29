@@ -25,3 +25,7 @@ def mirror-update [] {
 def fmd [] {
 	^fmt -u -w 85
 }
+
+def bt [] {
+	"`"
+}

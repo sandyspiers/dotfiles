@@ -1,4 +1,5 @@
-command = nu
+command = nu -e ze
 theme = dracula
 font-family = JetBrainsMono Nerd Font Mono
+confirm-close-surface = false
 

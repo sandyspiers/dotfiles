@@ -4,6 +4,7 @@ alias hxi = hx $in
 alias conf = hx ~/dotfiles
 alias ex = exit
 alias ze = zellij
+alias za = ze a --index
 alias fd = fd -H
 alias ll = ls -a
 

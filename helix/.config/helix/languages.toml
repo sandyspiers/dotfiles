@@ -17,3 +17,15 @@ args = [
 name = "markdown"
 auto-format = true
 formatter = { command = "prettier", args = ["--parser", "markdown"] }
+
+[[language]]
+name = "quarto"
+scope = "source.qmd"
+language-id = "qmd"
+injection-regex = "qmd"
+file-types = ["qmd"]
+indent = { tab-width = 2, unit = "  " }
+grammar = "markdown"
+block-comment-tokens = { start = "<!--", end = "-->" }
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "markdown"] }

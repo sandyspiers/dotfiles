@@ -5,7 +5,6 @@ if ! command -v stow &>/dev/null; then
     echo "Installing stow!"
     cd ~ || exit
 
-    sudo pacman -Syu --noconfirm
     sudo pacman -Sy --noconfirm --needed git base-devel stow
 
     cd - || exit

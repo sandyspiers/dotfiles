@@ -5,7 +5,6 @@ if ! command -v yay &>/dev/null; then
     echo "Installing yay!"
     cd ~ || exit
 
-    sudo pacman -Syu --noconfirm
     sudo pacman -Sy --noconfirm --needed git base-devel
     git clone https://aur.archlinux.org/yay.git
     cd yay || exit
@@ -16,5 +15,4 @@ fi
 
 # install from arguments
 echo "Installing $@"
-yay -Syu --noconfirm
-yay -Sy --needed --noconfirm "$@"
+yay -Syu --needed --noconfirm "$@"

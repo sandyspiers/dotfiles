@@ -41,3 +41,6 @@ ya pack -i
 
 # install zellij stuff
 ./zellij/.config/zellij/plug.sh
+
+# broot install
+broot --install

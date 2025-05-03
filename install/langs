@@ -11,6 +11,8 @@ langs=(
     prettier
     pandoc
 
+    quarto-cli-bin
+
     docker
     docker-compose
 )

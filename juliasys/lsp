@@ -1,2 +1,2 @@
 #!/bin/bash
-julia create-sysimage.jl lsp.so LanguageServer SymbolServer
+julia create-sysimage.jl lsp.so LanguageServer

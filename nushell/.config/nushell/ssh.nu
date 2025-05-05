@@ -13,6 +13,8 @@ do --env {
         }
     }
 
+    # If you find this doesnt work, make sure that
+    # in .ssh/config you have AddKeysToAgent yes
     let ssh_agent_env = ^ssh-agent -c
         | lines
         | first 2

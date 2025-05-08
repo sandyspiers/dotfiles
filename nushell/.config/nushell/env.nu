@@ -2,6 +2,9 @@
 $env.SHELL = "nu"
 $env.EDITOR = "helix"
 
+# this is needed for quarto mermaid png export
+$env.QUARTO_CHROMIUM = "/usr/bin/chromium"
+
 # add localbin
 $env.PATH = ($env.PATH | prepend "/home/sandy/.local/bin")
 

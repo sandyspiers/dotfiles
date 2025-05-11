@@ -4,7 +4,7 @@
 
 keybinds clear-defaults=true {
     normal {
-        bind "j" { SwitchToMode "locked"; Run "nu" "-e" "zellij-start-julia-repl"; }
+        bind "j" { SwitchToMode "locked"; Run "nu" "-e" "zellij-init-repl; jl"; }
         bind "b" { Run "broot" { direction "Right"; }; SwitchToMode "move"; MovePane "Left"; SwitchToMode "locked"; }
     }
     locked {

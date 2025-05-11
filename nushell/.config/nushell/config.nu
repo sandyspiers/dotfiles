@@ -4,8 +4,11 @@ $env.config.show_banner = false
 # aliases
 source alias.nu
 
-# pipelines
-source pipes.nu
+# functions
+source funcs.nu
+
+# repl
+source repl.nu
 
 # Completions
 source completions.nu

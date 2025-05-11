@@ -2,7 +2,7 @@ theme = "dracula"
 
 [editor]
 line-number = "absolute"
-shell = ["nu", "--stdin", "--config", "~/.config/nushell/pipes.nu", "-c"]
+shell = ["nu", "--stdin", "--config", "~/.config/nushell/repl.nu", "-c"]
 true-color = true
 undercurl = true
 bufferline = "always"
@@ -21,7 +21,7 @@ select = "underline"
 hidden = false
 
 [keys.normal]
-"\\" = ":pipe-to zellij-repl"
+"\\" = ":pipe-to zellij-repl $in"
 S-h = ":bp"
 S-l = ":bn"
 

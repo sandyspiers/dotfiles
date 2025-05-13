@@ -16,8 +16,8 @@ def zellij-repl [code:string] {
 	let repl = zellij-get-repl 
 	if repl != null {
 		let id = $env.ZELLIJ_PANE_ID
-	 	zellij pipe $"zjpane::focus_at::($repl)"
+	 	zellij pipe $"zjpane::focus_id::($repl)"
 		zellij action write-chars $"($code)"
-	 	zellij pipe $"zjpane::focus_at::($id)"
+	 	zellij pipe $"zjpane::focus_id::($id)"
 	}
 }

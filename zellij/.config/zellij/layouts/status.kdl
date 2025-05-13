@@ -9,20 +9,21 @@ layout {
                 format_space               "#[fg=yellow] "
                 hide_frame_for_single_pane "false"
                 border_enabled             "false"
-                mode_normal                "#[fg=yellow] "
-                mode_locked                "#[fg=red] "
-                mode_tmux                  "#[fg=cyan] "
-                mode_resize                "#[fg=red]󰩨 "
-                mode_pane                  "#[fg=cyan] "
-                mode_tab                   "#[fg=cyan]󰓩 "
-                mode_scroll                "#[fg=green]󰡏 "
-                mode_enter_search          "#[fg=blue]{name}  "
-                mode_search                "#[fg=blue] "
-                mode_rename_tab            "#[fg=red]{name} 󰑕 "
-                mode_rename_pane           "#[fg=red]{name} 󰑕 "
-                mode_session               "#[fg=green] "
-                mode_move                  "#[fg=red] "
-                mode_prompt                "#[fg=green] "
+
+                mode_normal                "#[fg=yellow]  "
+                mode_locked                "#[fg=red]  "
+                mode_tmux                  "#[fg=cyan]  "
+                mode_resize                "#[fg=red] 󰩨 "
+                mode_pane                  "#[fg=cyan]  "
+                mode_tab                   "#[fg=cyan] 󰓩 "
+                mode_scroll                "#[fg=green] 󰡏 "
+                mode_enter_search          "#[fg=blue]  "
+                mode_search                "#[fg=blue]  "
+                mode_rename_tab            "#[fg=red] 󰑕 "
+                mode_rename_pane           "#[fg=red] 󰑕 "
+                mode_session               "#[fg=green]  "
+                mode_move                  "#[fg=red]  "
+                mode_prompt                "#[fg=green]  "
 
                 // formatting for inactive tabs
                 tab_normal                 "#[fg=bright_black]{name}"
@@ -30,7 +31,7 @@ layout {
                 tab_normal_sync            "#[fg=bright_black]{name}"
 
                 // formatting for the current active tab
-                tab_active                 "#[fg=cyan]{name}#[fg=yellow]{floating_indicator}"
+                tab_active                 "#[fg=cyan]{name}#[fg=yellow]"
                 tab_active_fullscreen      "#[fg=yellow]{name}#[fg=yellow]{fullscreen_indicator}"
                 tab_active_sync            "#[fg=green]{name}#[fg=yellow]{sync_indicator}"
 
@@ -61,4 +62,10 @@ layout {
             }
         }
     }
+    tab name="󰎦" focus=true borderless=true
+    tab name="󰎩"
+    tab name="󰎬"
+    tab name="󰎮"
+    tab name="󰎰"
+    tab name="󰎵"
 }

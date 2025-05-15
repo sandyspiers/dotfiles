@@ -63,9 +63,4 @@ layout {
         }
     }
     tab name="󰎦" focus=true borderless=true
-    tab name="󰎩"
-    tab name="󰎬"
-    tab name="󰎮"
-    tab name="󰎰"
-    tab name="󰎵"
 }

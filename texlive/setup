@@ -5,6 +5,7 @@ tex=(
     perl-file-homedir
     libxcrypt-compat
     biber
+    texlab
 )
 
 # raw install

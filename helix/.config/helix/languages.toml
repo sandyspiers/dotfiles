@@ -32,6 +32,7 @@ formatter = { command = "prettier", args = ["--parser", "markdown"] }
 
 [[language]]
 name = "latex"
+language-servers = [ "texlab", "vale-ls" ]
 
 [language-server.texlab.config.texlab.build]
 onSave = true

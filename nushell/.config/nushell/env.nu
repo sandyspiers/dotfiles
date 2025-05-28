@@ -1,6 +1,7 @@
 # Environment variables
 $env.SHELL = "nu"
 $env.EDITOR = "helix"
+$env.JULIA_SHELL = "bash"
 
 # this is needed for quarto mermaid png export
 $env.QUARTO_CHROMIUM = "/usr/bin/chromium"

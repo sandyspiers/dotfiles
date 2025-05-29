@@ -5,6 +5,7 @@ alias conf = hx ~/dotfiles
 alias ex = exit
 alias fd = fd -H
 alias ll = ls -a
+def pr [] { ps | where status =~ Running | sort-by cpu }
 
 # latex
 alias tex = latexmk --interaction=nonstopmode

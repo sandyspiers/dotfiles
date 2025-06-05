@@ -20,6 +20,20 @@ try
 catch e
     println("Could not import Revise!")
 end
+function include_tests()
+    if isdir("test")
+        println("includet(")
+        for f in readdir("test"; join=true)
+            if startswith(basename(f), "test") && endswith(basename(f), ".jl")
+                println("...$(basename(f))")
+                includet(f)
+            end
+        end
+        println(")")
+    else
+        println("No test/ dir found.")
+    end
+end
 
 try
     import OhMyREPL

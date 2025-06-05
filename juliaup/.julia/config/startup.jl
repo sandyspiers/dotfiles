@@ -16,7 +16,7 @@ catch e
 end
 
 try
-    import Revise
+    using Revise
 catch e
     println("Could not import Revise!")
 end

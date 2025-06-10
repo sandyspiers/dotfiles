@@ -7,8 +7,16 @@ true-color = true
 undercurl = true
 bufferline = "always"
 auto-save.after-delay.enable = true
-
 end-of-line-diagnostics = "hint"
+
+[editor.soft-wrap]
+enable = true
+
+[editor.indent-guides]
+render = true
+character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
 [editor.inline-diagnostics]
 cursor-line = "error"
 

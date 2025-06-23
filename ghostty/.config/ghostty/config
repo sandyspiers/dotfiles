@@ -3,3 +3,4 @@ theme = dracula
 font-family = JetBrainsMono Nerd Font Mono
 confirm-close-surface = false
 
+keybind = shift+enter=text:\n

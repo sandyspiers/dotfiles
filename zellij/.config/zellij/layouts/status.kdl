@@ -1,7 +1,7 @@
 layout {
     default_tab_template {
         children
-        pane size=1 borderless=true {
+        pane size=1 borderless=false {
             plugin location="file:$HOME/.config/zellij/plugins/zjstatus.wasm" {
                 // plugin configuration...
                 format_left                "{mode} #[fg=bright_black]󰇘 #[fg=green]{session} #[fg=bright_black]󰇘 {tabs} #[fg=bright_black]󰇘"
@@ -62,5 +62,4 @@ layout {
             }
         }
     }
-    tab name="󰎦" focus=true borderless=true
 }

@@ -29,7 +29,6 @@ ide=(
     
     starship
     zoxide
-    eza
     lazygit
 )
 

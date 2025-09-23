@@ -11,6 +11,7 @@ ide=(
     openssh
     github-cli
     unzip
+    bat
 
     fd
     fzf

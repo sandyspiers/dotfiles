@@ -12,6 +12,8 @@ args = [
   "-e",
   "using LanguageServer; runserver()",
 ]
+[language-server.julia.config]
+julia.lint.missingrefs = "none"
 
 [[language]]
 name = "markdown"

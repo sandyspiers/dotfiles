@@ -1,2 +1,2 @@
 #!/bin/bash
-julia create-sysimage.jl base.so OhMyREPL Revise Infiltrator
+julia create-sysimage.jl base.so OhMyREPL Revise

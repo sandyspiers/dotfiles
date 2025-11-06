@@ -2,22 +2,21 @@
 
 > chaos, configured chaotically
 
-Zellij, Helix, Nushell, Kanata...
+Broot, Helix, Nushell, Julia...
 
 ## Install
+
+For full terminal dev environment,
 
 ```bash
 ./install all
 ```
 
-## Gnome
+For gnome and gui apps,
 
 ```bash
 ./install gui
 ./install gnome
 ```
 
-Use _Extension Manager_ to manage Gnome.
-Start with 'Dash to Dock' and 'User Themes'.
-Check [here](https://zebreus.github.io/all-gnome-backgrounds/) for wallpaper options.
-
+someday I will move to ansible. that day is not today...

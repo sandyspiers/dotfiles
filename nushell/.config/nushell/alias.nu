@@ -11,7 +11,7 @@ def pr [] { ps | where status =~ Running | sort-by cpu }
 alias tex = latexmk --interaction=nonstopmode
 
 # julia
-alias jl = julia -q --sysimage=/home/sandy/dotfiles/juliasys/base.so
+alias jl = julia -q --project=@.
 
 # git
 alias lg = lazygit

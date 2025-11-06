@@ -5,7 +5,7 @@ auto-format = true
 [language-server.julia]
 command = "julia"
 args = [
-  "--sysimage=/home/sandy/dotfiles/juliasys/lsp.so",
+  "--project=@LanguageServer",
   "--startup-file=no",
   "--history-file=no",
   "--quiet",

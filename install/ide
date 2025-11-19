@@ -10,6 +10,7 @@ ide=(
     wget
     openssh
     github-cli
+    git-delta
     unzip
     bat
 

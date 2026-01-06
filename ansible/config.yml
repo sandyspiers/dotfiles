@@ -1,8 +1,44 @@
 ---
 
 dev_env:
-  - btop
-  - chezmoi
-  - cowsay
+  # git tools
+  - git
+  - git-delta
+  - github-cli
 
-stow_dirs: []
+  # cli tools
+  - bat
+  - btop
+  - curl
+  - fastfetch
+  - fd
+  - fzf
+  - openssh
+  - ripgrep
+  - zoxide
+
+  # arch specific
+  - reflector
+
+  # shell & promp
+  - carapace
+  - fish
+  - nushell
+  - starship
+
+  # tui
+  - broot
+  - helix
+  - lazygit
+  - yazi
+  - zellij
+
+lang_tools:
+  - docker
+  - docker-compose
+
+  - juliaup
+
+  - python
+  - python-pip
+  - uv

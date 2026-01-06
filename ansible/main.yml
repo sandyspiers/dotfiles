@@ -14,17 +14,25 @@
         update_cache: true
         upgrade: true
 
-    - name: Install dev env
+    - name: Install development environment
       become: true
       kewlfft.aur.aur:
         use: yay
         name: "{{ dev_env }}"
 
-    - name: Install stow
+    - name: Install language tools
+      become: true
+      kewlfft.aur.aur:
+        use: yay
+        name: "{{ lang_tools }}"
+
+    - name: Install Chezmoi
       become: true
       community.general.pacman:
-        name: stow
+        name: chezmoi
 
-    - name: Stowing dev env
-      command: stow {{ item }}
-      loop: "{{ stow_dirs }}"
+    - name: Init Chezmoi (https)
+      command: chezmoi init sandyspiers
+
+    - name: Apply Chezmoi
+      command: chezmoi apply

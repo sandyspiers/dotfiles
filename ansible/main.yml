@@ -1,0 +1,30 @@
+---
+
+- name: Setting up Arch dev environment
+  hosts: all
+
+  vars_files:
+    - config.yml
+
+  tasks:
+
+    - name: System update and upgrade
+      become: true
+      community.general.pacman:
+        update_cache: true
+        upgrade: true
+
+    - name: Install dev env
+      become: true
+      kewlfft.aur.aur:
+        use: yay
+        name: "{{ dev_env }}"
+
+    - name: Install stow
+      become: true
+      community.general.pacman:
+        name: stow
+
+    - name: Stowing dev env
+      command: stow {{ item }}
+      loop: "{{ stow_dirs }}"

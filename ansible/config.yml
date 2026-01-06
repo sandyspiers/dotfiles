@@ -1,0 +1,8 @@
+---
+
+dev_env:
+  - btop
+  - chezmoi
+  - cowsay
+
+stow_dirs: []

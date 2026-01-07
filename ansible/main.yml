@@ -67,5 +67,5 @@
     - name: Init Chezmoi (https)
       command: chezmoi init sandyspiers
 
-    - name: Apply Chezmoi
-      command: chezmoi apply
+    - name: Chezmoi update
+      command: chezmoi update

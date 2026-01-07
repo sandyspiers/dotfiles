@@ -22,3 +22,6 @@ simply run
 This script installs ansible and runs the playbook in [`ansible/main.yml`](`ansible/main.yml`).
 The playbook installs all dev tools, languages and sets up chezmoi.
 At the moment, it only works on Arch, but some day I will extend this to work on Ubuntu as well.
+
+Note that this clones the chezmoi dotfiles use HTTPS,
+so if you plan to push some changes, you will have to edit the remote.

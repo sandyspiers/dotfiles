@@ -1,3 +1,5 @@
+# # Custom Settings
+
 $env.config.buffer_editor = 'helix'
 $env.config.show_banner = false
 
@@ -9,6 +11,11 @@ source funcs.nu
 
 # repl
 source repl.nu
+
+# ssh agent
+source ssh.nu
+
+# # Vendor Loading
 
 # Zoxide - only initialize if config doesn't exist
 if not ("~/.zoxide.nu" | path exists) {
@@ -22,8 +29,7 @@ if not ("~/.starship.nu" | path exists) {
 } 
 source ~/.starship.nu
 
-# ssh agent
-source ssh.nu
+# # Best For Last
 
 # Completions (keep this for last)
 source completions.nu

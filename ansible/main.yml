@@ -14,14 +14,39 @@
         update_cache: true
         upgrade: true
 
+    - name: Create the `aur_builder` user
+      become: yes
+      ansible.builtin.user:
+        name: aur_builder
+        create_home: yes
+        group: wheel
+
+    - name: Allow the `aur_builder` user to run `sudo pacman` without a password
+      become: yes
+      ansible.builtin.lineinfile:
+        path: /etc/sudoers.d/aur_builder-allow-to-sudo-pacman
+        state: present
+        line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+        validate: 'visudo -cf %s'
+        create: yes
+
+    - name: Install yay
+      become: true
+      become_user: aur_builder
+      kewlfft.aur.aur:
+        name: yay
+        use: makepkg
+
     - name: Install development environment
       become: true
+      become_user: aur_builder
       kewlfft.aur.aur:
         use: yay
         name: "{{ dev_env }}"
 
     - name: Install language tools
       become: true
+      become_user: aur_builder
       kewlfft.aur.aur:
         use: yay
         name: "{{ lang_tools }}"

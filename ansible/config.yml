@@ -21,13 +21,11 @@ dev_env:
   - reflector
 
   # shell & promp
-  - carapace
   - fish
   - nushell
   - starship
 
   # tui
-  - broot
   - helix
   - lazygit
   - yazi

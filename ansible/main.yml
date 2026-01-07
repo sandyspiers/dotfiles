@@ -15,11 +15,13 @@
         upgrade: true
 
     - name: Install development environment
+      become: true
       kewlfft.aur.aur:
         use: yay
         name: "{{ dev_env }}"
 
     - name: Install language tools
+      become: true
       kewlfft.aur.aur:
         use: yay
         name: "{{ lang_tools }}"

@@ -3,8 +3,12 @@
 # early exit if we fail...
 set -e
 
-echo "==> Installing/updating Ansible..."
-sudo pacman -S --noconfirm ansible
+if command -v ansible-playbook &> /dev/null; then
+    echo "==> Ansible is already installed"
+else
+    echo "==> Installing Ansible..."
+    sudo pacman -S --noconfirm ansible
+fi
 
 echo "==> Running Ansible playbook..."
 cd ansible

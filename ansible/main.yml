@@ -30,6 +30,14 @@
         validate: 'visudo -cf %s'
         create: yes
 
+    - name: Install yay dependencies
+      become: true
+      community.general.pacman:
+        name:
+          - git
+          - base-devel
+        extra_args: --needed
+
     - name: Install yay
       become: true
       become_user: aur_builder

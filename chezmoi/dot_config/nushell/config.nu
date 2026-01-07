@@ -10,17 +10,20 @@ source funcs.nu
 # repl
 source repl.nu
 
-# Zoxide # before completions!
+# Zoxide - only initialize if config doesn't exist
+if not ("~/.zoxide.nu" | path exists) {
+    zoxide init nushell | save -f ~/.zoxide.nu
+}
 source ~/.zoxide.nu
 
-# Completions
-source completions.nu
+# Starship prompt - only initialize if config doesn't exist
+if not ("~/.starship.nu" | path exists) {
+    starship init nu | save -f ~/.starship.nu
+} 
+source ~/.starship.nu
 
 # ssh agent
 source ssh.nu
 
-# Starship prompt
-use ~/.starship.nu
-
-# I. Am. BROOT.
-use '/home/sandy/.config/broot/launcher/nushell/br' *
+# Completions (keep this for last)
+source completions.nu

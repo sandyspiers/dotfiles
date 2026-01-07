@@ -3,6 +3,7 @@ alias hxi = hx $in
 alias conf = hx ~/dotfiles
 alias ex = exit
 alias ll = ls -a
+alias cm = chezmoi
 def pr [] { ps | where status =~ Running | sort-by cpu }
 
 # latex

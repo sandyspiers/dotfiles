@@ -10,17 +10,6 @@ else
     sudo pacman -S --noconfirm ansible
 fi
 
-if command -v yay &> /dev/null; then
-    echo "==> yay is already installed"
-else
-    echo "==> Installing yay..."
-    sudo pacman -S --noconfirm --needed base-devel git
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    makepkg -si --noconfirm
-    cd ..
-fi
-
 echo "==> Running Ansible playbook..."
 cd ansible
 ansible-galaxy collection install -r requirements.yml

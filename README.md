@@ -6,18 +6,19 @@ Well,
 I'm trying to be less chaotic,
 with the help of ansible and chezmoi.
 
-There are install scripts for fresh Ubuntu & Arch systems.
+## Design Principles
 
-## Arch Install
+TBC...
 
-1. Boot into ISO
-2. Connect to internet (if not on ethernet, use [iwctl](https://wiki.archlinux.org/title/Iwd#iwctl))
-3. Run [`archinstall`](https://wiki.archlinux.org/title/Archinstall), choose sensible settings
-4. Login, clone this repo
+## Install
 
+To install my setup on a new machine,
+simply run
+
+```bash
+./install.sh
 ```
-sudo pacman -Sy git
-git clone https://github.com/sandyspiers/dotfiles
-```
 
-5. Run `./install.sh`
+This script installs ansible and runs the playbook in [`ansible/main.yml`](`ansible/main.yml`).
+The playbook installs all dev tools, languages and sets up chezmoi.
+At the moment, it only works on Arch, but some day I will extend this to work on Ubuntu as well.

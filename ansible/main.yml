@@ -14,19 +14,6 @@
         update_cache: true
         upgrade: true
 
-    - name: Install yay dependencies
-      become: true
-      community.general.pacman:
-        name:
-          - base-devel
-          - git
-
-    - name: Install yay
-      become: true
-      kewlfft.aur.aur:
-        name: yay
-        use: makepkg
-
     - name: Install development environment
       become: true
       kewlfft.aur.aur:

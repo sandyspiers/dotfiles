@@ -10,14 +10,14 @@ source funcs.nu
 # repl
 source repl.nu
 
+# Zoxide # before completions!
+source ~/.zoxide.nu
+
 # Completions
 source completions.nu
 
 # ssh agent
 source ssh.nu
-
-# Zoxide
-source ~/.zoxide.nu
 
 # Starship prompt
 use ~/.starship.nu

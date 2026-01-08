@@ -2,7 +2,7 @@ theme = "dracula"
 
 [editor]
 line-number = "absolute"
-shell = ["nu", "-l", "-c"]
+shell = ["nu", "--stdin", "-l", "-c"]
 true-color = true
 undercurl = true
 bufferline = "always"

@@ -69,3 +69,6 @@
 
     - name: Chezmoi update
       command: chezmoi update
+
+    - name: Update/Install zellij plugings
+      command: '~/.config/zellij/install_plugins.sh'

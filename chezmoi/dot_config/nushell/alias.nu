@@ -1,4 +1,5 @@
 alias hx = helix
+alias h = hx .
 alias hxi = hx $in
 alias conf = hx ~/dotfiles
 alias ex = exit

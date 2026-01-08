@@ -42,3 +42,15 @@ lang_tools:
   - python
   - python-pip
   - uv
+
+latex_tools:
+  - texlive-mate
+  - biber
+  - texlab
+  - zathura
+  - zathura-pdf-mupdf
+
+fonts:
+  - ttf-ubuntu-font-family
+  - ttf-jetbrains-mono-nerd
+  - otf-libertinus

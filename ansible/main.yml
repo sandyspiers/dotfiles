@@ -59,6 +59,20 @@
         use: yay
         name: "{{ lang_tools }}"
 
+    - name: Installing latex tools (this one may take a while...)
+      become: true
+      become_user: aur_builder
+      kewlfft.aur.aur:
+        use: yay
+        name: "{{ latex_tools }}"
+
+    - name: Installing fonts
+      become: true
+      become_user: aur_builder
+      kewlfft.aur.aur:
+        use: yay
+        name: "{{ fonts }}"
+
     - name: Install Chezmoi
       become: true
       community.general.pacman:

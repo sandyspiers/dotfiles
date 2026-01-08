@@ -18,3 +18,7 @@ def zj [] {
     zellij attach $session_name --create
 }
 
+def fzf-tail [] {
+  let file = (fzf)
+  tail -f $file
+}

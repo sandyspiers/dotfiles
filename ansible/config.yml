@@ -37,6 +37,8 @@ lang_tools:
 
   - juliaup
 
+  - prettier
+
   - python
   - python-pip
   - uv

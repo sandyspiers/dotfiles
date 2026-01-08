@@ -15,5 +15,10 @@ source repl.nu
 # ssh agent
 source ssh.nu
 
+# override vendors
+source zoxide.nu
+source starship.nu
+source yazi.nu
+
 # Completions (keep this for last)
 source completions.nu

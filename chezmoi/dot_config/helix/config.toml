@@ -1,5 +1,6 @@
-[editor]
 theme = "dracula"
+
+[editor]
 line-number = "absolute"
 shell = ["nu", "-l", "-c"]
 true-color = true

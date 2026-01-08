@@ -1,0 +1,6 @@
+[deps]
+Debugger = "31a5f54b-26ea-5ae9-a837-f05ce5417438"
+Infiltrator = "5903a43b-9cc3-4c30-8d17-598619ec4e9b"
+OhMyREPL = "5fb14364-9ced-5910-84b2-373655c76a03"
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
+TestEnv = "1e6cf692-eddd-4d53-88a5-2d735e33781b"

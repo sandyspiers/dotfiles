@@ -55,7 +55,7 @@ keybinds clear-defaults=true {
         bind "Alt g" { SwitchToMode "locked"; }
         // Runners
         bind "y" { Run "yazi" { close_on_exit true; }; SwitchToMode "locked"; }
-        bind "j" { Run "nu" "-l" "-c" "jl" { close_on_exit false; }; SwitchToMode "locked"; }
+        bind "j" { Run "nu" "-l" "-c" "julia-repl" { close_on_exit false; }; SwitchToMode "locked"; }
         bind "e" { Run "helix" "." { close_on_exit true; }; SwitchToMode "locked"; }
         bind "g" { Run "lazygit" { close_on_exit true; floating true; }; SwitchToMode "locked"; }
         bind "t" { Run "nu" "-l" "-c" "fzf-tail" { close_on_exit true; floating true; }; SwitchToMode "locked"; }

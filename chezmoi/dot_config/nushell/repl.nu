@@ -21,3 +21,8 @@ def zellij-repl [code:string] {
 	 	zellij pipe $"zjpane::focus_id::($id)"
 	}
 }
+
+def julia-repl [] {
+	zellij-init-repl 
+	jl
+}

@@ -27,8 +27,46 @@ My approach to keybindings is as follows,
 
 ## Install
 
-To install my setup on a new machine,
-simply run
+## Arch
+
+First step is to setup arch.
+
+### Using ISO
+
+1. Boot in Arch ISO
+1. Setup internet using ethernet or `iwctl`
+1. Run `pacman -Sy`
+1. Run `archinstall`, choosing appropriate defaults
+1. Reboot and login, clone down repo and carry on below
+
+### Using WSL
+
+1. In powershell, run `wsl --install archlinux`,
+   this should take you string into arch
+1. Perform system update `pacman -Syu`
+1. Set root password `passwd`
+1. Install sudo and vi with `pacman -S sudo vi vim`
+1. Make the `wheel` user group sudoers, by doing `visudo`, and uncommenting the correct line
+1. Create user `useradd -m sandy`
+1. Give user password `passwd sandy`
+1. Add new user to `wheel` group: `usermod -aG wheel sandy`. Check it worked by doing `groups sandy`
+1. Edit config with `vim /etc/wsl.conf` and append the file with
+
+```
+[user]
+default=sandy
+```
+
+1. Exit wsl, kill the VM with `wsl --terminate archlinux`
+1. Log back in. To get the correct home dir do `wsl -d archlinux --cd ~`
+1. To get some things working with parent windows, install `xdg-utils`
+1. If the locale is an issue, run `sudo vim /etc/locale.gen` and uncomment the correct one, then run `sudo locale-gen`
+
+### Once logged in
+
+Install git and clone down this repo anywhere.
+
+To install everything, simply run
 
 ```bash
 ./install.sh

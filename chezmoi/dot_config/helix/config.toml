@@ -1,0 +1,36 @@
+[editor]
+theme = "dracula"
+line-number = "absolute"
+shell = ["nu", "-l", "-c"]
+true-color = true
+undercurl = true
+bufferline = "always"
+auto-save.after-delay.enable = true
+end-of-line-diagnostics = "hint"
+
+[editor.soft-wrap]
+enable = true
+
+[editor.indent-guides]
+render = true
+character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[editor.inline-diagnostics]
+cursor-line = "error"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[keys.normal]
+"\\" = ":pipe-to zellij-repl $in"
+S-h = ":bp"
+S-l = ":bn"
+
+[keys.normal.space]
+space = ":write"

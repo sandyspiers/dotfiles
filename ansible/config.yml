@@ -44,7 +44,7 @@ lang_tools:
   - uv
 
 latex_tools:
-  - texlive-mate
+  - texlive-meta
   - biber
   - texlab
   - zathura

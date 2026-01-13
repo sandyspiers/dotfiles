@@ -1,3 +1,7 @@
+# This file is for functions that do cool things
+# Its not really for tiny short-named functions,
+# those are in alias.nu
+ 
 def mirror-update [] {
 	sudo reflector --verbose --country Australia --sort rate --latest 20 --save /etc/pacman.d/mirrorlist
 	open /etc/pacman.d/mirrorlist
@@ -11,11 +15,6 @@ def git-repo-name [] {
   } else {
     pwd | path basename
   }
-}
-
-def zj [] {
-    let session_name = git-repo-name
-    zellij attach $session_name --create
 }
 
 def fzf-tail [] {

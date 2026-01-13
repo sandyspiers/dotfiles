@@ -76,3 +76,54 @@ def gh-latest-release [
         print $"✓ Saved to ($output_path)"
     }
 }
+
+# Compile markdown to PDF using pandoc with Eisvogel template
+def md-to-pdf [
+    input: string                        # Input markdown file
+    --output (-o): string                # Output PDF file (optional)
+] {
+    let output_file = if ($output != null) {
+        $output
+    } else {
+        $input | path parse | update extension "pdf" | path join
+    }
+    
+    print $"Compiling ($input) -> ($output_file)..."
+    
+    pandoc $input -o $output_file --template eisvogel --pdf-engine xelatex
+    
+    print $"✓ Done"
+}
+
+# Watch a markdown file and recompile on changes
+def md-watch [
+    input: string                        # Input markdown file
+    --output (-o): string                # Output PDF file (optional)
+] {
+    # Initial compilation
+    if ($output != null) {
+        md-to-pdf $input --output $output
+    } else {
+        md-to-pdf $input
+    }
+
+    # View pdf, push to background
+    if ($output != null) {
+        print $"Viewing pdf ($output)"
+        job spawn  { zathura $output }
+    } else {
+        let pdf_file = $input | path parse | update extension "pdf" | path join
+        print $"Viewing pdf ($pdf_file)"
+        job spawn { zathura $pdf_file }
+    }
+    
+    # Watch for changes
+    print $"\nWatching ($input) for changes..."
+    watch $input {
+        if ($output != null) {
+            md-to-pdf $input --output $output
+        } else {
+            md-to-pdf $input
+        }
+    }
+}

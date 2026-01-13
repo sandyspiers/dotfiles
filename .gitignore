@@ -1,3 +1,6 @@
 yay
 plugins/
 history.txt
+
+chezmoi/dot_pandoc/templates/eisvogel.latex
+chezmoi/dot_pandoc/templates/eisvogel.beamer

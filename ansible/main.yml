@@ -86,3 +86,7 @@
 
     - name: Update/Install zellij plugings
       command: '~/.config/zellij/install_plugins.sh'
+
+    - name: Update/Install pandoc templates
+      command: '~/.pandoc/templates/install-templates.nu'
+

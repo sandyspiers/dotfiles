@@ -17,6 +17,11 @@ def git-repo-name [] {
   }
 }
 
+def zj [] {
+    let session_name = git-repo-name
+    zellij attach $session_name --create
+}
+
 def fzf-tail [] {
   let file = (fzf)
   tail -f $file

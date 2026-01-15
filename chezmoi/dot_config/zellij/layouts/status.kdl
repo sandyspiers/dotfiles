@@ -5,7 +5,7 @@ layout {
             plugin location="file:$HOME/.config/zellij/plugins/zjstatus.wasm" {
                 // plugin configuration...
                 format_left                "{mode} #[fg=bright_black]󰇘 #[fg=green]{session} #[fg=bright_black]󰇘 {tabs} #[fg=bright_black]󰇘"
-                format_right               "#[fg=green]{command_git_branch}#[fg=bright_black]󰇘 #[fg=blue]{datetime}"
+                format_right               "{command_mem} {command_cpu} #[fg=bright_black]󰇘 {command_git_branch} #[fg=bright_black]󰇘 #[fg=blue]{datetime}"
                 format_space               "#[fg=yellow] "
                 hide_frame_for_single_pane "false"
                 border_enabled             "false"
@@ -46,8 +46,18 @@ layout {
                 tab_fullscreen_indicator   "  "
                 tab_floating_indicator     " 󰉧 "
 
+                command_cpu_command     "nu -c \"ps | get cpu | math sum | math floor | fill -a r -w 3"
+                command_cpu_format      "#[fg=yellow]{stdout} #[fg=cyan]"
+                command_cpu_interval    "1"
+                command_cpu_rendermode  "static"
+
+                command_mem_command     "nu -c \"ps | get mem | math sum\""
+                command_mem_format      "#[fg=yellow]{stdout} #[fg=cyan]"
+                command_mem_interval    "1"
+                command_mem_rendermode  "static"
+
                 command_git_branch_command     "git branch --show-current"
-                command_git_branch_format      "{stdout} #[fg=cyan] "
+                command_git_branch_format      "#[fg=green]{stdout} #[fg=cyan]"
                 command_git_branch_interval    "1"
                 command_git_branch_rendermode  "static"
 

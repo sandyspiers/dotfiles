@@ -48,12 +48,12 @@ layout {
 
                 command_cpu_command     "nu -c \"ps | get cpu | math sum | math floor | fill -a r -w 3"
                 command_cpu_format      "#[fg=yellow]{stdout} #[fg=cyan]"
-                command_cpu_interval    "1"
+                command_cpu_interval    "5"
                 command_cpu_rendermode  "static"
 
                 command_mem_command     "nu -c \"ps | get mem | math sum\""
                 command_mem_format      "#[fg=yellow]{stdout} #[fg=cyan]"
-                command_mem_interval    "1"
+                command_mem_interval    "5"
                 command_mem_rendermode  "static"
 
                 command_git_branch_command     "git branch --show-current"

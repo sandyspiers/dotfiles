@@ -132,3 +132,29 @@ def md-watch [
         }
     }
 }
+
+def bar [percentage: float, --width: int = 10] {
+    let blocks = ["", "▏", "▎", "▍", "▌", "▋", "▊", "▉", "█"]
+    let fill_width = ($percentage / 100) * $width
+    let full_blocks = $fill_width | math floor
+    let partial = (($fill_width - $full_blocks) * 8) | math round
+    
+    let filled = (0..<$full_blocks | each { "█" } | str join)
+    let partial_block = if $partial > 0 { $blocks | get $partial } else { "" }
+    let remaining = $width - $full_blocks - (if $partial > 0 { 1 } else { 0 })
+    let empty = (0..<$remaining | each { " " } | str join)
+    
+    $"<($filled)($partial_block)($empty)>"
+}
+
+def cpu-bar [] {
+    let cpu_cores = sys cpu | length
+    let cpu_usage = ps | get cpu | math sum
+    bar ($cpu_usage / $cpu_cores)
+}
+
+def mem-bar [] {
+    let mem_total = (sys mem).total
+    let mem_used = (sys mem).used
+    bar ($mem_used / $mem_total)
+}

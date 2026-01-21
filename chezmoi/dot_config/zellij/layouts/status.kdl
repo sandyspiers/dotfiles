@@ -47,12 +47,12 @@ layout {
                 tab_floating_indicator     " 󰉧 "
 
                 command_cpu_command     "nu -l -c cpu-bar"
-                command_cpu_format      "#[fg=yellow]{stdout}#[fg=cyan] "
+                command_cpu_format      "#[fg=bright_black]{stdout}#[fg=cyan] "
                 command_cpu_interval    "1"
                 command_cpu_rendermode  "static"
 
                 command_mem_command     "nu -l -c mem-bar"
-                command_mem_format      "#[fg=yellow]{stdout}#[fg=cyan] "
+                command_mem_format      "#[fg=bright_black]{stdout}#[fg=cyan] "
                 command_mem_interval    "1"
                 command_mem_rendermode  "static"
 

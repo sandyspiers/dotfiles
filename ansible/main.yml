@@ -1,7 +1,7 @@
 ---
 
 - name: Setting up Arch dev environment
-  hosts: all
+  hosts: "{{ target | default('localhost') }}"
 
   vars_files:
     - config.yml
@@ -81,12 +81,17 @@
     - name: Init Chezmoi (https)
       command: chezmoi init sandyspiers
 
-    - name: Chezmoi update
-      command: chezmoi update
+    - name: Chezmoi pull (ignoring errors here, be careful!)
+      command: chezmoi git pull
+      ignore_errors: true
+
+    - name: Chezmoi apply
+      command: chezmoi apply
 
     - name: Update/Install zellij plugings
       command: '~/.config/zellij/install_plugins.sh'
 
     - name: Update/Install pandoc templates
-      command: '~/.pandoc/templates/install-templates.nu'
-
+      command:
+        cmd: 'nu install-templates.nu'
+        chdir: '~/.pandoc/templates'

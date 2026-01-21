@@ -72,12 +72,26 @@ To install everything, simply run
 ./install.sh
 ```
 
-This script installs ansible and runs the playbook in [`ansible/main.yml`](`ansible/main.yml`).
+This script installs ansible and runs the playbook in [`ansible/main.yml`](./ansible/main.yml).
 The playbook installs all dev tools, languages and sets up chezmoi.
 At the moment, it only works on Arch, but some day I will extend this to work on Ubuntu as well.
 
 Note that this clones the chezmoi dotfiles use HTTPS,
 so if you plan to push some changes, you will have to edit the remote.
+
+### Over SSH
+
+1. Install ansible on control node
+1. Add the name of the host to [`ansible/inventory`](./ansible/inventory), and make sure its added to your `.ssh/config`
+1. cd into `ansible/` and run:
+
+```bash
+ansible-galaxy collection install -r requirements.yml
+ansible-playbook main.yml -e target=beast --ask-become-pass
+```
+
+replacing `beast` with the appropriate hostname.
+You could also use `all`, for well, all host in the inventory file.
 
 ## Usage
 

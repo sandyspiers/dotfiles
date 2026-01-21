@@ -2,11 +2,14 @@
 alias hx = helix
 alias h = hx .
 alias hxi = hx $in
-alias conf = hx ~/dotfiles
 alias ex = exit
 alias ll = ls -a
 alias cm = chezmoi
 def pr [] { ps | where status =~ Running | sort-by cpu }
+
+# zellij (defined in funcs.nu)
+# alias zj = zellij-attach-git
+# alias zf = zellij-attach-fzf
 
 # latex
 alias tex = latexmk --interaction=nonstopmode

@@ -17,10 +17,18 @@ def git-repo-name [] {
   }
 }
 
-def zj [] {
+def zellij-attach-git [] {
     let session_name = git-repo-name
     zellij attach $session_name --create
 }
+alias zj = zellij-attach-git
+
+def zellij-attach-fzf [] {
+    let $name = (zellij list-sessions --short | fzf)
+    zellij attach $name
+}
+alias zf = zellij-attach-fzf
+
 
 def fzf-tail [] {
   let file = (fzf)

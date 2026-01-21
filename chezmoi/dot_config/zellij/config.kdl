@@ -4,7 +4,7 @@
 
 keybinds clear-defaults=true {
     locked {
-        bind "Alt z" { SwitchToMode "normal"; } // TODO Can I use super?
+        bind "Alt g" { SwitchToMode "normal"; } // TODO Can I use super?
         bind "Alt f" { ToggleFloatingPanes; }
         bind "Alt h" { MoveFocusOrTab "left"; }
         bind "Alt j" { MoveFocus "down"; }
@@ -54,7 +54,7 @@ keybinds clear-defaults=true {
         bind "9" { GoToTab 9; SwitchToMode "locked"; }
         bind "enter" { SwitchToMode "locked"; }
         bind "esc" { SwitchToMode "locked"; }
-        bind "Alt z" { SwitchToMode "locked"; }
+        bind "Alt g" { SwitchToMode "locked"; }
         // Runners
         bind "y" { Run "yazi" { close_on_exit true; }; SwitchToMode "locked"; }
         bind "j" { Run "nu" "-l" "-c" "julia-repl" { close_on_exit false; }; SwitchToMode "locked"; }

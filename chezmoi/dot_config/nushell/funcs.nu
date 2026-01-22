@@ -164,5 +164,5 @@ def cpu-bar [] {
 def mem-bar [] {
     let mem_total = (sys mem).total
     let mem_used = (sys mem).used
-    bar ($mem_used / $mem_total)
+    bar (($mem_used / $mem_total) * 100)
 }

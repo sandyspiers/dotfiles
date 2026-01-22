@@ -6,6 +6,7 @@ alias ex = exit
 alias ll = ls -a
 alias cm = chezmoi
 def pr [] { ps | where status =~ Running | sort-by cpu }
+alias x = xdg-open
 
 # zellij (defined in funcs.nu)
 # alias zj = zellij-attach-git

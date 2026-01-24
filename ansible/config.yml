@@ -1,12 +1,7 @@
 ---
-
-dev_env:
-  # git tools
-  - git
-  - git-delta
-  - github-cli
-
-  # cli tools
+# MINIMAL: Core CLI tools for a usable terminal environment
+minimal:
+  # cli
   - bat
   - btop
   - curl
@@ -16,41 +11,49 @@ dev_env:
   - openssh
   - ripgrep
   - zoxide
+  
+  # git tools
+  - git
+  - git-delta
 
-  # arch specific
-  - reflector
+  # tui
+  - helix
+  - yazi
+  - zellij
+  - lazygit
 
-  # shell & promp
+  # shells & prompts
   - fish
   - nushell
   - starship
 
-  # tui
-  - helix
-  - lazygit
-  - yazi
-  - zellij
+# DEV: Development tools (includes minimal)
+dev:
+  # git
+  - github-cli
 
-lang_tools:
+  # arch specific
+  - reflector
+
+  # language tools
   - docker
   - docker-compose
-
   - juliaup
-
   - prettier
-
   - python
   - python-pip
   - uv
 
-latex_tools:
+# FULL: Everything including latex and fonts (includes dev)
+full:
+  # latex
   - texlive-meta
   - biber
   - texlab
   - zathura
   - zathura-pdf-mupdf
 
-fonts:
+  # fonts
   - ttf-ubuntu-font-family
   - ttf-jetbrains-mono-nerd
   - otf-libertinus

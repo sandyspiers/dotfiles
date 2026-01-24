@@ -1,18 +1,25 @@
 ---
-
 - name: Setting up Arch dev environment
   hosts: "{{ target | default('localhost') }}"
 
   vars_files:
     - config.yml
 
-  tasks:
+  vars:
+    # Determine which package lists to install based on level
+    # Levels are cumulative: full includes dev includes minimal
+    install_minimal: "{{ level | default('minimal') in ['minimal', 'dev', 'full'] }}"
+    install_dev: "{{ level | default('minimal') in ['dev', 'full'] }}"
+    install_full: "{{ level | default('minimal') == 'full' }}"
 
+  tasks:
+    # === SYSTEM SETUP (always runs) ===
     - name: System update and upgrade
       become: true
       community.general.pacman:
         update_cache: true
         upgrade: true
+      tags: [minimal, dev, full, always]
 
     - name: Create the `aur_builder` user
       become: yes
@@ -20,6 +27,7 @@
         name: aur_builder
         create_home: yes
         group: wheel
+      tags: [minimal, dev, full, always]
 
     - name: Allow the `aur_builder` user to run `sudo pacman` without a password
       become: yes
@@ -29,6 +37,7 @@
         line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
         validate: 'visudo -cf %s'
         create: yes
+      tags: [minimal, dev, full, always]
 
     - name: Install yay dependencies
       become: true
@@ -37,6 +46,7 @@
           - git
           - base-devel
         extra_args: --needed
+      tags: [minimal, dev, full, always]
 
     - name: Install yay
       become: true
@@ -44,54 +54,65 @@
       kewlfft.aur.aur:
         name: yay
         use: makepkg
+      tags: [minimal, dev, full, always]
 
-    - name: Install development environment
+    # === MINIMAL PACKAGES ===
+    - name: Install minimal packages (CLI essentials)
       become: true
       become_user: aur_builder
       kewlfft.aur.aur:
         use: yay
-        name: "{{ dev_env }}"
+        name: "{{ minimal }}"
+      when: install_minimal
+      tags: [minimal, dev, full]
 
-    - name: Install language tools
+    # === DEV PACKAGES ===
+    - name: Install dev packages (git, languages, containers)
       become: true
       become_user: aur_builder
       kewlfft.aur.aur:
         use: yay
-        name: "{{ lang_tools }}"
+        name: "{{ dev }}"
+      when: install_dev
+      tags: [dev, full]
 
-    - name: Installing latex tools (this one may take a while...)
+    # === FULL PACKAGES ===
+    - name: Install full packages (latex and fonts)
       become: true
       become_user: aur_builder
       kewlfft.aur.aur:
         use: yay
-        name: "{{ latex_tools }}"
+        name: "{{ full }}"
+      when: install_full
+      tags: [full]
 
-    - name: Installing fonts
-      become: true
-      become_user: aur_builder
-      kewlfft.aur.aur:
-        use: yay
-        name: "{{ fonts }}"
-
+    # === CHEZMOI SETUP ===
     - name: Install Chezmoi
       become: true
       community.general.pacman:
         name: chezmoi
+      tags: [minimal, dev, full]
 
     - name: Init Chezmoi (https)
       command: chezmoi init sandyspiers
+      tags: [minimal, dev, full]
 
     - name: Chezmoi pull (ignoring errors here, be careful!)
       command: chezmoi git pull
       ignore_errors: true
+      tags: [minimal, dev, full]
 
     - name: Chezmoi apply
       command: chezmoi apply
+      tags: [minimal, dev, full]
 
-    - name: Update/Install zellij plugings
+    - name: Update/Install zellij plugins
       command: '~/.config/zellij/install_plugins.sh'
+      tags: [minimal, dev, full]
 
     - name: Update/Install pandoc templates
       command:
         cmd: 'nu install-templates.nu'
         chdir: '~/.pandoc/templates'
+      when: install_full
+      tags: [full]

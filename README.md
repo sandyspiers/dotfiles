@@ -29,7 +29,7 @@ My approach to keybindings is as follows,
 
 ## Arch
 
-First step is to setup arch.
+First step is to setup Arch.
 
 ### Using ISO
 
@@ -66,15 +66,41 @@ default=sandy
 
 Install git and clone down this repo anywhere.
 
-To install everything, simply run
+To install a minimal dev setup, simply run
 
 ```bash
 ./install.sh
 ```
 
 This script installs ansible and runs the playbook in [`ansible/main.yml`](./ansible/main.yml).
-The playbook installs all dev tools, languages and sets up chezmoi.
 At the moment, it only works on Arch, but some day I will extend this to work on Ubuntu as well.
+For a more complete installation, use one of the levels suggested below.
+
+#### Installation Levels
+
+The playbook supports three installation levels (cumulative):
+
+| Level     | Packages                                             | Use Case                          |
+| --------- | ---------------------------------------------------- | --------------------------------- |
+| `minimal` | helix, zellij, yazi, lazygit, shells, core CLI tools | Quick setup on any machine        |
+| `dev`     | minimal + github-cli, docker, python, julia          | Development workstation           |
+| `full`    | dev + latex, fonts                                   | Full workstation with typesetting |
+
+To specify a level, pass it via `-e level=<level>`:
+
+```bash
+cd ansible/
+ansible-galaxy collection install -r requirements.yml
+
+# Minimal install (default)
+ansible-playbook main.yml --ask-become-pass
+
+# Dev install
+ansible-playbook main.yml -e level=dev --ask-become-pass
+
+# Full install
+ansible-playbook main.yml -e level=full --ask-become-pass
+```
 
 Note that this clones the chezmoi dotfiles use HTTPS,
 so if you plan to push some changes, you will have to edit the remote.
@@ -92,6 +118,12 @@ ansible-playbook main.yml -e target=beast --ask-become-pass
 
 replacing `beast` with the appropriate hostname.
 You could also use `all`, for well, all host in the inventory file.
+
+To specify an installation level on remote:
+
+```bash
+ansible-playbook main.yml -e target=beast -e level=dev --ask-become-pass
+```
 
 ## Usage
 

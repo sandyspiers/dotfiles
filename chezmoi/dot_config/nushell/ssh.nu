@@ -1,4 +1,10 @@
 do --env {
+    # If SSH_AUTH_SOCK is already set (e.g., from SSH agent forwarding),
+    # don't mess with it - just use what's provided
+    if ($env.SSH_AUTH_SOCK? | is-not-empty) {
+        return
+    }
+    
     let ssh_agent_file = (
         $nu.temp-dir | path join $"ssh-agent-($env.USER? | default $env.USER).nuon"
     )

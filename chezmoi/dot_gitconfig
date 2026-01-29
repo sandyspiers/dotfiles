@@ -19,9 +19,10 @@
     diffFilter = delta --color-only
 
 [delta]
-    navigate = true  # use n and N to move between diff sections
-    dark = true      # or light = true, or omit for auto-detection
-	line-numbers = true
+    navigate = true
+    dark = true
+    line-numbers = true
+    syntax-theme = Dracula
 
 [merge]
     conflictStyle = zdiff3

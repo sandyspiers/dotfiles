@@ -1,5 +1,9 @@
 promptToReturnFromSubprocess: false
 
+git:
+  pagers:
+    - pager: delta --paging=never
+
 gui:
   # Nerd fonts version to use.
   # One of: '2' | '3' | empty string (default)

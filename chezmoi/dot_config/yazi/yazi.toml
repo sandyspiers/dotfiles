@@ -55,6 +55,9 @@ reveal = [
 	{ run = "termux-open %d1",      desc = "Reveal", for = "android" },
 	{ run = "clear; exiftool %s1; echo 'Press enter to exit'; read _", desc = "Show EXIF", for = "unix", block = true },
 ]
+vd = [
+	{ run = "vd %s", desc = "VisiData", for = "unix", block = true },
+]
 extract = [
 	{ run = "ya pub extract --list %s", desc = "Extract here" },
 ]
@@ -67,6 +70,8 @@ download = [
 rules = [
 	# Folder
 	{ url = "*/", use = [ "edit", "open", "reveal" ] },
+	# CSV
+	{ mime = "text/csv", use = [ "vd", "edit", "reveal" ] },
 	# Text
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
 	# Image

@@ -16,7 +16,7 @@ alias x = xdg-open
 alias tex = latexmk --interaction=nonstopmode
 
 # julia
-alias jl = julia -q --project=@.
+alias jl = julia -q --project --threads auto
 
 # git
 alias lg = lazygit

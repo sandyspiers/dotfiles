@@ -17,6 +17,10 @@ alias tex = latexmk --interaction=nonstopmode
 
 # julia
 alias jl = julia -q --project --threads auto
+def jlg [name: string] {
+    let cmd = $"using Pkg; Pkg.generate\(\"($name)\"\)"
+    julia -e $cmd
+}
 
 # git
 alias lg = lazygit

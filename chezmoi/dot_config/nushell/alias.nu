@@ -12,9 +12,6 @@ alias x = xdg-open
 # alias zj = zellij-attach-git
 # alias zf = zellij-attach-fzf
 
-# latex
-alias tex = latexmk --interaction=nonstopmode
-
 # julia
 alias jl = julia -q --project --threads auto
 def jlg [name: string] {

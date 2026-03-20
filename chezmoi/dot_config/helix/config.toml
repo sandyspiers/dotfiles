@@ -29,7 +29,6 @@ select = "underline"
 hidden = false
 
 [keys.normal]
-"\\" = ":pipe-to zellij-repl $in"
 S-h = ":bp"
 S-l = ":bn"
 

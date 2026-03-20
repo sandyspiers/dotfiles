@@ -10,6 +10,9 @@ $env.JULIA_SHELL = "bash"
 # add localbin
 $env.PATH = ($env.PATH | prepend "/home/sandy/.local/bin")
 
+# add julia bin
+$env.PATH = ($env.PATH | prepend "/home/sandy/.julia/bin")
+
 # add perl paths (this is mostly just for biber)
 $env.PATH = ($env.PATH | prepend "/usr/bin/vendor_perl")
 

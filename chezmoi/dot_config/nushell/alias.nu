@@ -18,6 +18,7 @@ def jlg [name: string] {
     let cmd = $"using Pkg; Pkg.generate\(\"($name)\"\)"
     julia -e $cmd
 }
+alias jls = julia -q --project=@LanguageServer
 
 # git
 alias lg = lazygit

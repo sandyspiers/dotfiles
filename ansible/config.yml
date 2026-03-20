@@ -1,59 +1,61 @@
 ---
 # MINIMAL: Core CLI tools for a usable terminal environment
 minimal:
-  # cli
-  - bat
-  - btop
-  - curl
-  - fastfetch
-  - fd
-  - fzf
-  - openssh
-  - ripgrep
-  - zoxide
-  
-  # git tools
-  - git
-  - git-delta
+  brew:
+    # cli
+    - bat
+    - btop
+    - curl
+    - fastfetch
+    - fd
+    - fzf
+    - openssh
+    - ripgrep
+    - zoxide
 
-  # tui
-  - helix
-  - yazi
-  - zellij
-  - lazygit
+    # git tools
+    - git
+    - git-delta
 
-  # shells & prompts
-  - fish
-  - nushell
-  - starship
+    # tui
+    - helix
+    - yazi
+    - zellij
+    - lazygit
+
+    # shells & prompts
+    - fish
+    - nushell
+    - starship
+  arch: []
+  ubuntu: []
 
 # DEV: Development tools (includes minimal)
 dev:
-  # git
-  - github-cli
-
-  # arch specific
-  - reflector
-
-  # language tools
-  - docker
-  - docker-compose
-  - juliaup
-  - prettier
-  - python
-  - python-pip
-  - uv
+  brew:
+    - gh           # github-cli
+    - juliaup
+    - prettier
+    - python
+    - uv
+  arch:
+    - reflector    # arch-specific mirror manager, not in brew
+  ubuntu: []
 
 # FULL: Everything including latex and fonts (includes dev)
 full:
-  # latex
-  - texlive-meta
-  - biber
-  - texlab
-  - zathura
-  - zathura-pdf-mupdf
-
-  # fonts
-  - ttf-ubuntu-font-family
-  - ttf-jetbrains-mono-nerd
-  - otf-libertinus
+  brew:
+    - texlive      # texlive-meta on arch
+    - biber
+    - texlab
+  arch:
+    - zathura
+    - zathura-pdf-mupdf
+    - ttf-ubuntu-font-family
+    - ttf-jetbrains-mono-nerd
+    - otf-libertinus
+  ubuntu:
+    - zathura
+    - zathura-pdf-poppler
+    - fonts-ubuntu
+    - fonts-jetbrains-mono

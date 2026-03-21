@@ -6,7 +6,6 @@
     - config.yml
 
   vars:
-    # Levels are cumulative: full includes dev includes minimal
     install_minimal: "{{ level | default('minimal') in ['minimal', 'dev', 'full'] }}"
     install_dev: "{{ level | default('minimal') in ['dev', 'full'] }}"
     install_full: "{{ level | default('minimal') == 'full' }}"
@@ -17,216 +16,40 @@
 
   tasks:
 
-    # === OS PREREQUISITES ===
-
-    - name: "Arch | System update"
-      become: true
-      community.general.pacman:
-        update_cache: true
-        upgrade: true
+    - name: "OS | Include Arch tasks"
+      ansible.builtin.include_tasks: arch.yml
       when: is_arch
-      tags: [minimal, dev, full, always]
+      tags: [always]
 
-    - name: "Arch | Install brew prerequisites"
-      become: true
-      community.general.pacman:
-        name:
-          - base-devel
-          - git
-        extra_args: --needed
-      when: is_arch
-      tags: [minimal, dev, full, always]
-
-    - name: "Ubuntu | System update"
-      become: true
-      ansible.builtin.apt:
-        update_cache: true
-        upgrade: dist
+    - name: "OS | Include Brew (Ubuntu) tasks"
+      ansible.builtin.include_tasks: brew.yml
       when: is_ubuntu
-      tags: [minimal, dev, full, always]
-
-    - name: "Ubuntu | Install brew prerequisites"
-      become: true
-      ansible.builtin.apt:
-        name:
-          - build-essential
-          - git
-          - curl
-          - procps
-          - file
-        state: present
-      when: is_ubuntu
-      tags: [minimal, dev, full, always]
-
-    # === AUR SETUP (Arch only) ===
-
-    - name: "Arch | Create aur_builder user"
-      become: true
-      ansible.builtin.user:
-        name: aur_builder
-        create_home: true
-        group: wheel
-      when: is_arch
-      tags: [minimal, dev, full, always]
-
-    - name: "Arch | Allow aur_builder to run sudo pacman without password"
-      become: true
-      ansible.builtin.lineinfile:
-        path: /etc/sudoers.d/aur_builder-allow-to-sudo-pacman
-        state: present
-        line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
-        validate: 'visudo -cf %s'
-        create: true
-      when: is_arch
-      tags: [minimal, dev, full, always]
-
-    - name: "Arch | Install yay"
-      become: true
-      become_user: aur_builder
-      kewlfft.aur.aur:
-        name: yay
-        use: makepkg
-      when: is_arch
-      tags: [minimal, dev, full, always]
-
-    # === HOMEBREW INSTALL ===
-
-    - name: "Brew | Check if Homebrew is installed"
-      ansible.builtin.stat:
-        path: "{{ brew_bin }}"
-      register: brew_installed
-      tags: [minimal, dev, full, always]
-
-    - name: "Brew | Install Homebrew"
-      ansible.builtin.shell:
-        cmd: >
-          NONINTERACTIVE=1
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      when: not brew_installed.stat.exists
-      tags: [minimal, dev, full, always]
-
-    # === BREW PACKAGES ===
-
-    - name: "Brew | Install minimal packages"
-      community.general.homebrew:
-        name: "{{ minimal.brew }}"
-        state: present
-        path: "{{ brew_prefix }}/bin"
-      when: install_minimal
-      tags: [minimal, dev, full]
-
-    - name: "Brew | Install dev packages"
-      community.general.homebrew:
-        name: "{{ dev.brew }}"
-        state: present
-        path: "{{ brew_prefix }}/bin"
-      when: install_dev
-      tags: [dev, full]
-
-    - name: "Brew | Install full packages"
-      community.general.homebrew:
-        name: "{{ full.brew }}"
-        state: present
-        path: "{{ brew_prefix }}/bin"
-      when: install_full
-      tags: [full]
-
-    # === DOCKER (not available as a brew formula on Linux) ===
-
-    - name: "Arch | Install docker via AUR"
-      become: true
-      become_user: aur_builder
-      kewlfft.aur.aur:
-        use: yay
-        name:
-          - docker
-          - docker-compose
-      when: install_dev and is_arch
-      tags: [dev, full]
-
-    - name: "Ubuntu | Add Docker GPG key"
-      become: true
-      ansible.builtin.apt_key:
-        url: https://download.docker.com/linux/ubuntu/gpg
-        state: present
-      when: install_dev and is_ubuntu
-      tags: [dev, full]
-
-    - name: "Ubuntu | Add Docker apt repository"
-      become: true
-      ansible.builtin.apt_repository:
-        repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
-        state: present
-        filename: docker
-      when: install_dev and is_ubuntu
-      tags: [dev, full]
-
-    - name: "Ubuntu | Install docker"
-      become: true
-      ansible.builtin.apt:
-        name:
-          - docker-ce
-          - docker-ce-cli
-          - containerd.io
-          - docker-compose-plugin
-        update_cache: true
-        state: present
-      when: install_dev and is_ubuntu
-      tags: [dev, full]
-
-    # === OS-SPECIFIC PACKAGES ===
-
-    - name: "Arch | Install dev packages"
-      become: true
-      community.general.pacman:
-        name: "{{ dev.arch }}"
-        state: present
-      when: install_dev and is_arch and dev.arch | length > 0
-      tags: [dev, full]
-
-    - name: "Arch | Install full packages"
-      become: true
-      community.general.pacman:
-        name: "{{ full.arch }}"
-        state: present
-      when: install_full and is_arch and full.arch | length > 0
-      tags: [full]
-
-    - name: "Ubuntu | Install full packages"
-      become: true
-      ansible.builtin.apt:
-        name: "{{ full.ubuntu }}"
-        state: present
-      when: install_full and is_ubuntu and full.ubuntu | length > 0
-      tags: [full]
+      tags: [always]
 
     # === CHEZMOI SETUP ===
 
-    - name: "Brew | Install chezmoi"
-      community.general.homebrew:
-        name: chezmoi
-        state: present
-        path: "{{ brew_prefix }}/bin"
-      tags: [minimal, dev, full]
+    - name: "Chezmoi | Set chezmoi binary path"
+      ansible.builtin.set_fact:
+        chezmoi_bin: "{{ '/usr/bin/chezmoi' if is_arch else brew_prefix + '/bin/chezmoi' }}"
+      tags: [always]
 
     - name: "Chezmoi | Init"
-      ansible.builtin.command: "{{ brew_prefix }}/bin/chezmoi init sandyspiers"
+      ansible.builtin.command: "{{ chezmoi_bin }} init sandyspiers"
+      args:
+        creates: "~/.local/share/chezmoi/.git"
       tags: [minimal, dev, full]
 
-    - name: "Chezmoi | Pull"
-      ansible.builtin.command: "{{ brew_prefix }}/bin/chezmoi git pull"
-      ignore_errors: true
+    - name: "Chezmoi | Update and apply"
+      ansible.builtin.command: "{{ chezmoi_bin }} update -k"
       tags: [minimal, dev, full]
 
-    - name: "Chezmoi | Apply"
-      ansible.builtin.command: "{{ brew_prefix }}/bin/chezmoi apply"
-      tags: [minimal, dev, full]
+    # === INSTALL SCRIPTS ===
 
-    - name: "Chezmoi | Update/Install zellij plugins"
+    - name: "Install | Zellij plugins"
       ansible.builtin.command: ~/.config/zellij/install_plugins.sh
       tags: [minimal, dev, full]
 
-    - name: "Chezmoi | Install pandoc templates"
+    - name: "Install | Pandoc templates"
       ansible.builtin.command:
         cmd: nu install-templates.nu
         chdir: ~/.pandoc/templates

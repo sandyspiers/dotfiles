@@ -27,34 +27,71 @@ minimal:
     - fish
     - nushell
     - starship
-  arch: []
-  ubuntu: []
+  yay:
+    # cli
+    - bat
+    - btop
+    - curl
+    - fastfetch
+    - fd
+    - fzf
+    - openssh
+    - ripgrep
+    - zoxide
+
+    # git tools
+    - git
+    - git-delta
+
+    # tui
+    - helix
+    - yazi
+    - zellij
+    - lazygit
+
+    # shells & prompts
+    - fish
+    - nushell
+    - starship
+  apt: []
 
 # DEV: Development tools (includes minimal)
 dev:
   brew:
-    - gh           # github-cli
+    - gh
     - juliaup
     - prettier
     - python
     - uv
-  arch:
-    - reflector    # arch-specific mirror manager, not in brew
-  ubuntu: []
+  yay:
+    - github-cli
+    - juliaup
+    - podman
+    - podman-compose
+    - prettier
+    - python
+    - reflector
+    - uv
+  apt:
+    - podman
+    - podman-compose
 
 # FULL: Everything including latex and fonts (includes dev)
 full:
   brew:
-    - texlive      # texlive-meta on arch
+    - texlive
     - biber
     - texlab
-  arch:
+  yay:
+    - texlive-meta
+    - biber
+    - texlab
     - zathura
     - zathura-pdf-mupdf
     - ttf-ubuntu-font-family
     - ttf-jetbrains-mono-nerd
     - otf-libertinus
-  ubuntu:
+  apt:
     - zathura
     - zathura-pdf-poppler
     - fonts-ubuntu

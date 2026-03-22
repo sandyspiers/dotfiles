@@ -24,9 +24,11 @@ elif [ "${ID}" = "arch" ] || echo "${ID_LIKE}" | grep -q "arch"; then
     echo "==> Installing Ansible (pacman)..."
     sudo pacman -S --noconfirm ansible
 elif [ "${ID}" = "ubuntu" ] || [ "${ID}" = "debian" ]; then
-    echo "==> Installing Ansible (apt)..."
+    echo "==> Installing Ansible (pip)..."
     sudo apt-get update -qq
-    sudo apt-get install -y ansible
+    sudo apt-get install -y python3-pip
+    pip3 install --user ansible
+    export PATH="$HOME/.local/bin:$PATH"
 else
     echo "==> Unsupported OS: ${ID}"
     exit 1

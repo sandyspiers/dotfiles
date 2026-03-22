@@ -1,6 +1,14 @@
 #!/bin/bash
 set -e
 
+# Parse level argument
+LEVEL="${1:-dev}"
+if [[ ! "$LEVEL" =~ ^(minimal|dev|full)$ ]]; then
+    echo "Usage: $0 [minimal|dev|full]"
+    echo "Default: dev"
+    exit 1
+fi
+
 # Detect OS via /etc/os-release
 if [ -f /etc/os-release ]; then
     . /etc/os-release
@@ -24,10 +32,10 @@ else
     exit 1
 fi
 
-echo "==> Running Ansible playbook..."
+echo "==> Running Ansible playbook (level: ${LEVEL})..."
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "${SCRIPT_DIR}/ansible"
 ansible-galaxy collection install -r requirements.yml
-ansible-playbook main.yml --ask-become-pass "$@"
+ansible-playbook main.yml --ask-become-pass -e level="${LEVEL}"
 
 echo "==> Done!"

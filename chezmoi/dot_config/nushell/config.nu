@@ -9,9 +9,6 @@ source alias.nu
 # functions
 source funcs.nu
 
-# repl
-source repl.nu
-
 # ssh agent
 source ssh.nu
 

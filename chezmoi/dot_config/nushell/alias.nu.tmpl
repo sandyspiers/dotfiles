@@ -1,5 +1,7 @@
 # aliases and small named functions
+{{ if eq .chezmoi.osRelease.id "arch" -}}
 alias hx = helix
+{{ end -}}
 alias h = hx .
 alias hxi = hx $in
 alias ex = exit

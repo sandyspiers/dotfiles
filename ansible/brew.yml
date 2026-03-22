@@ -36,6 +36,13 @@
   when: not brew_installed.stat.exists
   tags: [minimal, dev, full, always]
 
+- name: "Brew | Add to .bashrc"
+  ansible.builtin.lineinfile:
+    path: "~/.bashrc"
+    line: 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'
+    create: true
+  tags: [minimal, dev, full, always]
+
 # === BREW PACKAGES ===
 
 - name: "Brew | Install minimal packages"

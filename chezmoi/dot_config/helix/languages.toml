@@ -2,7 +2,7 @@
 name = "julia"
 auto-format = true
 
-for use with julia LanguageServer
+# for use with julia LanguageServer
 [language-server.julia]
 command = "julia"
 args = [

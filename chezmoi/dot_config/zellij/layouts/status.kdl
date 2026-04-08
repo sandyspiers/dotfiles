@@ -46,17 +46,17 @@ layout {
                 tab_fullscreen_indicator   "  "
                 tab_floating_indicator     " 󰉧 "
 
-                command_host_command     "nu -l -c host-name"
+                command_host_command     "nu -c \"source ~/.config/nushell/funcs.nu; host-name\""
                 command_host_format      "#[fg=magenta]{stdout}"
                 command_host_interval    "60"
                 command_host_rendermode  "static"
 
-                command_cpu_command     "nu -l -c cpu-bar"
+                command_cpu_command     "nu -c \"source ~/.config/nushell/funcs.nu; cpu-bar\""
                 command_cpu_format      "#[fg=bright_black]{stdout}#[fg=cyan] "
                 command_cpu_interval    "1"
                 command_cpu_rendermode  "static"
 
-                command_mem_command     "nu -l -c mem-bar"
+                command_mem_command     "nu -c \"source ~/.config/nushell/funcs.nu; mem-bar\""
                 command_mem_format      "#[fg=bright_black]{stdout}#[fg=cyan] "
                 command_mem_interval    "1"
                 command_mem_rendermode  "static"

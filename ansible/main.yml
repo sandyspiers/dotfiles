@@ -55,3 +55,18 @@
         chdir: ~/.pandoc/templates
       when: install_full
       tags: [full]
+
+    # === DIRECTORIES ===
+
+    - name: "Dirs | Create ~/files subdirectories"
+      ansible.builtin.file:
+        path: "~/files/{{ item }}"
+        state: directory
+        mode: "0755"
+      loop:
+        - admin
+        - forks
+        - tools
+        - work
+        - scratch
+      tags: [minimal, dev, full]

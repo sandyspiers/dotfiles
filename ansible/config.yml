@@ -63,6 +63,7 @@ dev:
     - prettier
     - python
     - uv
+    - visidata
   yay:
     - github-cli
     - juliaup
@@ -72,6 +73,7 @@ dev:
     - python
     - reflector
     - uv
+    - visidata
   apt:
     - podman
     - podman-compose

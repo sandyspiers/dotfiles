@@ -2,28 +2,14 @@
 name = "julia"
 auto-format = true
 
-# for use with julia LanguageServer
-[language-server.julia]
-command = "julia"
-args = [
-  "--project=@LanguageServer",
-  "--startup-file=no",
-  "--history-file=no",
-  "--quiet",
-  "-e",
-  "using LanguageServer; runserver()",
-]
-[language-server.julia.config]
-julia.lint.missingrefs = "none"
+ [[language]]
+ name = "julia"
+ language-servers = [ "jetls" ]
 
-# [[language]]
-# name = "julia"
-# language-servers = [ "jetls" ]
-#
-# [language-server.jetls]
-# command = "jetls"
-# args = ["serve"]
-# timeout = 180
+ [language-server.jetls]
+ command = "jetls"
+ args = ["serve"]
+ timeout = 180
 
 [[language]]
 name = "markdown"

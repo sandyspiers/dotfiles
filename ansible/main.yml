@@ -49,6 +49,24 @@
       ansible.builtin.command: ~/.config/zellij/install_plugins.sh
       tags: [minimal, dev, full]
 
+    - name: "Install | Julia app - jetls"
+      ansible.builtin.command: >
+        julia -e 'using Pkg; Pkg.Apps.add(; url="https://github.com/aviatesk/JETLS.jl", rev="release")'
+      when: install_dev
+      tags: [dev, full]
+
+    - name: "Install | Julia app - jlfmt"
+      ansible.builtin.command: >
+        julia -e 'using Pkg; Pkg.Apps.add("JuliaFormatter")'
+      when: install_dev
+      tags: [dev, full]
+
+    - name: "Install | Julia app - runic"
+      ansible.builtin.command: >
+        julia -e 'using Pkg; Pkg.Apps.add("Runic")'
+      when: install_dev
+      tags: [dev, full]
+
     - name: "Install | Pandoc templates"
       ansible.builtin.command:
         cmd: nu install-templates.nu

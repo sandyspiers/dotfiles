@@ -13,6 +13,8 @@
     is_ubuntu: "{{ ansible_facts['os_family'] == 'Debian' }}"
     brew_prefix: "/home/linuxbrew/.linuxbrew"
     brew_bin: "/home/linuxbrew/.linuxbrew/bin/brew"
+    targets_path: "{{ (brew_prefix + '/bin:' + ansible_facts['env']['PATH']) if is_ubuntu else ansible_facts['env']['PATH'] }}"
+    targets_julia_path: "{{ (brew_prefix + '/bin:' + ansible_facts['env']['HOME'] + '/.juliaup/bin:' + ansible_facts['env']['PATH']) if is_ubuntu else ansible_facts['env']['PATH'] }}"
 
   tasks:
 
@@ -49,21 +51,40 @@
       ansible.builtin.command: ~/.config/zellij/install_plugins.sh
       tags: [minimal, dev, full]
 
+    - name: "Install | Julia - add release channel"
+      ansible.builtin.command: juliaup add release
+      environment:
+        PATH: "{{ targets_julia_path }}"
+      when: install_dev
+      tags: [dev, full]
+
     - name: "Install | Julia app - jetls"
       ansible.builtin.command: >
         julia -e 'using Pkg; Pkg.Apps.add(; url="https://github.com/aviatesk/JETLS.jl", rev="release")'
+      environment:
+        PATH: "{{ targets_julia_path }}"
+      args:
+        creates: "~/.julia/bin/jetls"
       when: install_dev
       tags: [dev, full]
 
     - name: "Install | Julia app - jlfmt"
       ansible.builtin.command: >
         julia -e 'using Pkg; Pkg.Apps.add("JuliaFormatter")'
+      environment:
+        PATH: "{{ targets_julia_path }}"
+      args:
+        creates: "~/.julia/bin/jlfmt"
       when: install_dev
       tags: [dev, full]
 
     - name: "Install | Julia app - runic"
       ansible.builtin.command: >
         julia -e 'using Pkg; Pkg.Apps.add("Runic")'
+      environment:
+        PATH: "{{ targets_julia_path }}"
+      args:
+        creates: "~/.julia/bin/runic"
       when: install_dev
       tags: [dev, full]
 

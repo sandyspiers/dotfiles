@@ -1,5 +1,7 @@
 [local]
-localhost ansible_connection=local
+localhost ansible_connection=local level=full
 
 [remote]
-beast
+beast level=dev
+ronin level=dev
+nuc level=minimal

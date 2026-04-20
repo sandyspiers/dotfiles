@@ -67,12 +67,6 @@
       when: install_dev
       tags: [dev, full]
 
-    - name: "Install | Pandoc templates"
-      ansible.builtin.command:
-        cmd: nu install-templates.nu
-        chdir: ~/.pandoc/templates
-      when: install_full
-      tags: [full]
 
     # === DIRECTORIES ===
 

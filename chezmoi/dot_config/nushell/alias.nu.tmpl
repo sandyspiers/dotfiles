@@ -1,5 +1,5 @@
 # aliases and small named functions
-{{ if or (eq .chezmoi.osRelease.id "arch") (eq .chezmoi.osRelease.id "cachyos") -}}
+{{ if and (ne .chezmoi.os "windows") (or (eq .chezmoi.osRelease.id "arch") (eq .chezmoi.osRelease.id "cachyos")) -}}
 alias hx = helix
 {{ end -}}
 alias h = hx .

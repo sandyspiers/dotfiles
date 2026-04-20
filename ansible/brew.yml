@@ -24,7 +24,7 @@
 
 - name: "Brew | Check if Homebrew is installed"
   ansible.builtin.stat:
-    path: "{{ brew_bin }}"
+    path: "{{ brew_prefix }}/bin/brew"
   register: brew_installed
   tags: [minimal, dev, full, always]
 

@@ -12,9 +12,8 @@
     is_arch: "{{ ansible_facts['os_family'] == 'Archlinux' }}"
     is_ubuntu: "{{ ansible_facts['os_family'] == 'Debian' }}"
     brew_prefix: "/home/linuxbrew/.linuxbrew"
-    brew_bin: "/home/linuxbrew/.linuxbrew/bin/brew"
     targets_path: "{{ (brew_prefix + '/bin:' + ansible_facts['env']['PATH']) if is_ubuntu else ansible_facts['env']['PATH'] }}"
-    targets_julia_path: "{{ (brew_prefix + '/bin:' + ansible_facts['env']['HOME'] + '/.juliaup/bin:' + ansible_facts['env']['PATH']) if is_ubuntu else ansible_facts['env']['PATH'] }}"
+    targets_julia_path: "{{ (ansible_facts['env']['HOME'] + '/.juliaup/bin:' + targets_path) if is_ubuntu else targets_path }}"
     chezmoi_bin: "{{ '/usr/bin/chezmoi' if is_arch else brew_prefix + '/bin/chezmoi' }}"
 
   tasks:

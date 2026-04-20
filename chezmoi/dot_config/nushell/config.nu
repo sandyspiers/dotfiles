@@ -2,6 +2,7 @@
 
 $env.config.buffer_editor = 'helix'
 $env.config.show_banner = false
+$env.config.shell_integration.osc133 = false
 
 # aliases
 source alias.nu

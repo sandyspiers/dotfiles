@@ -28,6 +28,17 @@
   register: brew_installed
   tags: [minimal, dev, full, always]
 
+- name: "Brew | Create linuxbrew directory"
+  become: true
+  ansible.builtin.file:
+    path: /home/linuxbrew/.linuxbrew
+    state: directory
+    owner: "{{ ansible_facts['user_id'] }}"
+    group: "{{ ansible_facts['user_id'] }}"
+    mode: "0755"
+  when: not brew_installed.stat.exists
+  tags: [minimal, dev, full, always]
+
 - name: "Brew | Install Homebrew"
   ansible.builtin.shell:
     cmd: >
@@ -50,6 +61,7 @@
     name: "{{ minimal.brew }}"
     state: present
     path: "{{ brew_prefix }}/bin"
+    update_homebrew: true
   when: install_minimal
   tags: [minimal, dev, full]
 

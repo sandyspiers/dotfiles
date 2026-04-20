@@ -8,13 +8,16 @@
 [init]
 	defaultBranch = main
 
+{{ if ne .chezmoi.os "windows" -}}
 [core]
 	editor = helix
 	pager = delta
+{{ end }}
 
 [alias]
 	root = rev-parse --show-toplevel
 
+{{ if ne .chezmoi.os "windows" -}}
 [interactive]
     diffFilter = delta --color-only
 
@@ -23,6 +26,8 @@
     dark = true
     line-numbers = true
     syntax-theme = Dracula
+
+{{ end -}}
 
 [merge]
     conflictStyle = zdiff3

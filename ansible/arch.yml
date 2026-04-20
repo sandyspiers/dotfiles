@@ -52,8 +52,8 @@
   become_user: aur_builder
   kewlfft.aur.aur:
     use: yay
-    name: "{{ minimal.yay }}"
-  when: install_minimal and minimal.yay | length > 0
+    name: "{{ minimal.shared + minimal.yay }}"
+  when: install_minimal
   tags: [minimal, dev, full]
 
 - name: "Arch | Install dev packages"
@@ -61,8 +61,8 @@
   become_user: aur_builder
   kewlfft.aur.aur:
     use: yay
-    name: "{{ dev.yay }}"
-  when: install_dev and dev.yay | length > 0
+    name: "{{ dev.shared + dev.yay }}"
+  when: install_dev
   tags: [dev, full]
 
 - name: "Arch | Install full packages"
@@ -70,8 +70,8 @@
   become_user: aur_builder
   kewlfft.aur.aur:
     use: yay
-    name: "{{ full.yay }}"
-  when: install_full and full.yay | length > 0
+    name: "{{ full.shared + full.yay }}"
+  when: install_full
   tags: [full]
 
 # === CHEZMOI ===

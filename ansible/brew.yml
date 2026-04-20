@@ -58,7 +58,7 @@
 
 - name: "Brew | Install minimal packages"
   community.general.homebrew:
-    name: "{{ minimal.brew }}"
+    name: "{{ minimal.shared + minimal.brew }}"
     state: present
     path: "{{ brew_prefix }}/bin"
     update_homebrew: true
@@ -67,7 +67,7 @@
 
 - name: "Brew | Install dev packages"
   community.general.homebrew:
-    name: "{{ dev.brew }}"
+    name: "{{ dev.shared + dev.brew }}"
     state: present
     path: "{{ brew_prefix }}/bin"
   when: install_dev
@@ -75,7 +75,7 @@
 
 - name: "Brew | Install full packages"
   community.general.homebrew:
-    name: "{{ full.brew }}"
+    name: "{{ full.shared + full.brew }}"
     state: present
     path: "{{ brew_prefix }}/bin"
   when: install_full

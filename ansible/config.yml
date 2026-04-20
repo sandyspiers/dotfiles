@@ -1,7 +1,7 @@
 ---
 # MINIMAL: Core CLI tools for a usable terminal environment
 minimal:
-  brew:
+  shared:
     # cli
     - bat
     - btop
@@ -27,67 +27,38 @@ minimal:
     - fish
     - nushell
     - starship
-  yay:
-    # cli
-    - bat
-    - btop
-    - curl
-    - fastfetch
-    - fd
-    - fzf
-    - openssh
-    - ripgrep
-    - zoxide
-
-    # git tools
-    - git
-    - git-delta
-
-    # tui
-    - helix
-    - yazi
-    - zellij
-    - lazygit
-
-    # shells & prompts
-    - fish
-    - nushell
-    - starship
+  brew: []
+  yay: []
   apt: []
 
 # DEV: Development tools (includes minimal)
 dev:
+  shared:
+    - juliaup
+    - prettier
+    - python
+    - uv
+    - visidata
   brew:
     - gh
-    - juliaup
-    - prettier
-    - python
-    - uv
-    - visidata
   yay:
     - github-cli
-    - juliaup
     - podman
     - podman-compose
-    - prettier
-    - python
     - reflector
-    - uv
-    - visidata
   apt:
     - podman
     - podman-compose
 
 # FULL: Everything including latex and fonts (includes dev)
 full:
+  shared:
+    - biber
+    - texlab
   brew:
     - texlive
-    - biber
-    - texlab
   yay:
     - texlive-meta
-    - biber
-    - texlab
     - zathura
     - zathura-pdf-mupdf
     - ttf-ubuntu-font-family

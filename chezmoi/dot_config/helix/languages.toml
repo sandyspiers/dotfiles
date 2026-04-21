@@ -1,6 +1,7 @@
 [[language]]
 name = "julia"
 auto-format = true
+language-servers = ["jetls"]
 
 [language-server.jetls]
 command = "jetls"

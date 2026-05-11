@@ -2,6 +2,7 @@
 name = "julia"
 auto-format = true
 language-servers = ["jetls"]
+rulers = [80]
 
 [language-server.jetls]
 command = "jetls"

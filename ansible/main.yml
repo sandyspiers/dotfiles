@@ -62,6 +62,7 @@
         - admin
         - forks
         - tools
-        - work
+        - research
+        - projects
         - scratch
       tags: [minimal, dev, full]

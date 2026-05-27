@@ -22,12 +22,12 @@ def mirror-update [] {
 }
 
 # =====================
-# Zellij session naming
+# Tmux session helpers
 # =====================
 
 def git-repo-name [] {
   let git_root = do { git rev-parse --show-toplevel } | complete
-  
+
   if $git_root.exit_code == 0 {
     $git_root.stdout | str trim | path basename
   } else {
@@ -35,17 +35,22 @@ def git-repo-name [] {
   }
 }
 
-def zellij-attach-git [] {
+def tmux-attach-git [] {
     let session_name = git-repo-name
-    zellij attach $session_name --create
+    let exists = (tmux has-session -t $session_name | complete).exit_code == 0
+    if $exists {
+        tmux attach-session -t $session_name
+    } else {
+        tmux new-session -s $session_name
+    }
 }
-alias zj = zellij-attach-git
+alias ta = tmux-attach-git
 
-def zellij-attach-fzf [] {
-    let $name = (zellij list-sessions --short | fzf)
-    zellij attach $name
+def tmux-attach-fzf [] {
+    let name = (tmux list-sessions -F "#{session_name}" | fzf)
+    tmux attach-session -t $name
 }
-alias zf = zellij-attach-fzf
+alias tf = tmux-attach-fzf
 
 # ==================
 # Markdown compiling

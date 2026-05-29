@@ -77,11 +77,11 @@ bash bootstrap.sh full     # full
 
 Three cumulative levels are supported:
 
-| Level     | Packages                                                  | Use case                   |
-| --------- | --------------------------------------------------------- | -------------------------- |
-| `minimal` | shells, core CLI tools (bat, fzf, ripgrep...), helix, tmux, yazi | Quick setup on any machine |
+| Level     | Packages                                                                   | Use case                   |
+| --------- | -------------------------------------------------------------------------- | -------------------------- |
+| `minimal` | shells, core CLI tools (bat, fzf, ripgrep...), helix, tmux, yazi           | Quick setup on any machine |
 | `dev`     | minimal + neovim + LSPs/formatters, git tools, node, python, julia, podman | Development workstation    |
-| `full`    | dev + fonts                                               | Full workstation           |
+| `full`    | dev + fonts                                                                | Full workstation           |
 
 #### LaTeX (optional)
 
@@ -92,6 +92,32 @@ bash latex.sh
 ```
 
 This installs texlive, biber, zathura, and a handful of fonts from [`packages/latex.txt`](./packages/latex.txt).
+
+## Ubuntu (via Distrobox)
+
+`bootstrap.sh` only supports Arch. On Ubuntu, the recommended approach is to run an
+Arch container via [Distrobox](https://distrobox.it), which shares your home directory
+so dotfiles apply to both host and container.
+
+```bash
+sudo apt install distrobox podman
+distrobox create --image archlinux --name arch
+distrobox enter arch
+```
+
+Once inside, bootstrap as normal:
+
+```bash
+git clone https://github.com/sandyspiers/dotfiles.git
+cd dotfiles && bash bootstrap.sh
+```
+
+To make tools available outside the container, export the binaries you want on the host:
+
+```bash
+distrobox-export --bin $(which nvim)
+distrobox-export --bin $(which lazygit)
+```
 
 #### Notes
 

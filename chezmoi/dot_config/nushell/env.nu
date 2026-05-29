@@ -4,7 +4,7 @@
 
 # Environment variables
 $env.SHELL = "nu"
-$env.EDITOR = "helix"
+$env.EDITOR = "nvim"
 $env.JULIA_SHELL = "bash"
 
 # add localbin

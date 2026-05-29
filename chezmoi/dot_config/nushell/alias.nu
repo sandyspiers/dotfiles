@@ -1,9 +1,5 @@
 # aliases and small named functions
-{{ if and (ne .chezmoi.os "windows") (or (eq .chezmoi.osRelease.id "arch") (eq .chezmoi.osRelease.id "cachyos")) -}}
-alias hx = helix
-{{ end -}}
-alias h = hx .
-alias hxi = hx $in
+alias v = nvim
 alias ex = exit
 alias ll = ls -a
 alias cm = chezmoi

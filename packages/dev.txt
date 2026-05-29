@@ -1,0 +1,30 @@
+# neovim + lsp / formatters
+neovim
+lua-language-server
+stylua
+ruff
+shfmt
+taplo
+prettier
+yamlfmt
+
+# git tools
+lazygit
+git-delta
+github-cli
+
+# runtimes & package managers
+nodejs
+python
+uv
+
+# julia
+juliaup
+
+# data
+visidata
+
+# containers
+podman
+podman-compose
+reflector

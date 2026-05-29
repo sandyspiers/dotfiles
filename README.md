@@ -4,7 +4,7 @@
 
 Well,
 I'm trying to be less chaotic,
-with the help of ansible and chezmoi.
+with the help of chezmoi.
 
 ## Design Principles
 
@@ -63,63 +63,37 @@ default=sandy
 
 ### Once logged in
 
-Install git and clone down this repo anywhere.
-
-To install a minimal dev setup, simply run
+Install git and clone this repo anywhere, then run `bootstrap.sh`.
 
 ```bash
-./install.sh
+git clone https://github.com/sandyspiers/chezmoi.git
+cd chezmoi
+bash bootstrap.sh          # dev (default)
+bash bootstrap.sh minimal  # minimal
+bash bootstrap.sh full     # full
 ```
-
-This script installs ansible and runs the playbook in [`ansible/main.yml`](./ansible/main.yml).
-At the moment, it only works on Arch, but some day I will extend this to work on Ubuntu as well.
-For a more complete installation, use one of the levels suggested below.
 
 #### Installation Levels
 
-The playbook supports three installation levels (cumulative):
+Three cumulative levels are supported:
 
-| Level     | Packages                                             | Use Case                          |
-| --------- | ---------------------------------------------------- | --------------------------------- |
-| `minimal` | helix, zellij, yazi, lazygit, shells, core CLI tools | Quick setup on any machine        |
-| `dev`     | minimal + github-cli, docker, python, julia          | Development workstation           |
-| `full`    | dev + latex, fonts                                   | Full workstation with typesetting |
+| Level     | Packages                                                  | Use case                   |
+| --------- | --------------------------------------------------------- | -------------------------- |
+| `minimal` | shells, core CLI tools (bat, fzf, ripgrep...), helix, tmux, yazi | Quick setup on any machine |
+| `dev`     | minimal + neovim + LSPs/formatters, git tools, node, python, julia, podman | Development workstation    |
+| `full`    | dev + fonts                                               | Full workstation           |
 
-To specify a level, pass it via `-e level=<level>`:
+#### LaTeX (optional)
 
-```bash
-cd ansible/
-ansible-galaxy collection install -r requirements.yml
-
-# Minimal install (default)
-ansible-playbook main.yml --ask-become-pass
-
-# Dev install
-ansible-playbook main.yml -e level=dev --ask-become-pass
-
-# Full install
-ansible-playbook main.yml -e level=full --ask-become-pass
-```
-
-Note that this clones the chezmoi dotfiles use HTTPS,
-so if you plan to push some changes, you will have to edit the remote.
-
-### Over SSH
-
-1. Install ansible on control node
-1. Add the name of the host to [`ansible/inventory`](./ansible/inventory), and make sure its added to your `.ssh/config`
-1. cd into `ansible/` and run:
+LaTeX is not included in any level. To install it separately after bootstrapping:
 
 ```bash
-ansible-galaxy collection install -r requirements.yml
-ansible-playbook main.yml -e target=beast --ask-become-pass
+bash latex.sh
 ```
 
-replacing `beast` with the appropriate hostname.
-You could also use `all`, for well, all host in the inventory file.
+This installs texlive, biber, zathura, and a handful of fonts from [`packages/latex.txt`](./packages/latex.txt).
 
-To specify an installation level on remote:
+#### Notes
 
-```bash
-ansible-playbook main.yml -e target=beast -e level=dev --ask-become-pass
-```
+- `bootstrap.sh` clones the chezmoi dotfiles over HTTPS — if you plan to push changes, update the remote afterwards.
+- Julia apps (`JETLS`, `JuliaFormatter`, `Runic`) are installed as part of the `dev` level via the `julia-app` helper script.

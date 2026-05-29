@@ -1,0 +1,6 @@
+biber
+texlive-meta
+zathura
+zathura-pdf-mupdf
+otf-libertinus
+ttf-poppins

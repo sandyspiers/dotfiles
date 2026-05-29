@@ -20,6 +20,6 @@ def main [
         error make { msg: "Provide at least one package name or use --url" }
     } else {
         let pkg_list = $names | each { |p| $"\"($p)\"" } | str join ", "
-        julia -e $"using Pkg; Pkg.Apps.add\([$pkg_list]\)"
+        julia -e $"using Pkg; Pkg.Apps.add\([($pkg_list)]\)"
     }
 }

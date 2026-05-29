@@ -2,21 +2,9 @@
 show_hidden = true
 show_symlink = true
 
-[plugin]
-prepend_previewers = [
-  { mime = "image/*", run = "noop" },
-  { mime = "application/pdf", run = "noop" },
-]
-
 [opener]
-csv = [
-  { run = 'visidata "$@"', block = true, desc = "visidata" },
-]
-open = [
-  { run = 'xdg-open "$@"', orphan = true, desc = "open", for = "linux" },
-]
+csv = [{ run = 'visidata "$@"', block = true, desc = "visidata" }]
+open = [{ run = 'xdg-open "$@"', orphan = true, desc = "open", for = "linux" }]
 
 [open]
-prepend_rules = [
-  { url = "*.csv", use = "csv" },
-]
+prepend_rules = [{ url = "*.csv", use = "csv" }]

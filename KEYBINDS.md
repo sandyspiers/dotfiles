@@ -17,8 +17,9 @@
 | Key | Action | Key | Action |
 |-----|--------|-----|--------|
 | `M-h/j/k/l` | Navigate panes | `M-n` | Cycle layout |
-| `M-i` / `M-o` | Prev / next window | `M-f` | Toggle floating popup |
-| `M-I` / `M-O` | Move window left / right | | |
+| `M-i` / `M-o` | Prev / next window | `M-f` | Floating shell |
+| `M-I` / `M-O` | Move window left / right | `M-b` | Floating btop |
+| `M-y` | Floating yazi | `M-t` | Floating fzf-tail |
 
 ### Prefix sequences
 

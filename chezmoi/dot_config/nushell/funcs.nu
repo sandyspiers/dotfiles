@@ -10,11 +10,6 @@ def host-name [] {
     let prefix = if ($env.SSH_CLIENT? | is-not-empty) { "ssh-" } else { "" }
     $"($prefix)(sys host | get hostname)"
 }
- 
-def fzf-tail [] {
-  let file = (fzf)
-  tail -f $file
-}
 
 def mirror-update [] {
 	sudo reflector --verbose --country Australia --sort rate --latest 20 --save /etc/pacman.d/mirrorlist

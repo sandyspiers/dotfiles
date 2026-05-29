@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euo pipefail
+
+file=$(fzf \
+    --prompt="tail > " \
+    --preview="tail -n 50 {}" \
+    --preview-window=right:60%)
+
+[ -n "$file" ] && tail -f "$file"

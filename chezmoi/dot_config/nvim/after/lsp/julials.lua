@@ -1,0 +1,3 @@
+return {
+  cmd = { "jetls", "serve" },
+}

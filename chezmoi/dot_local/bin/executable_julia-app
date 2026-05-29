@@ -1,0 +1,25 @@
+#!/usr/bin/env nu
+
+# Install Julia apps via Pkg.Apps.add
+# Apps are installed to ~/.julia/bin and available on PATH
+#
+# Usage:
+#   julia-app Runic
+#   julia-app Runic JuliaFormatter
+#   julia-app --url https://github.com/aviatesk/JETLS.jl --rev release
+
+def main [
+    ...names: string        # Package names to install
+    --url: string           # Install from a git URL
+    --rev: string           # Git revision or branch (use with --url)
+] {
+    if ($url | is-not-empty) {
+        let rev_part = if ($rev | is-not-empty) { $", rev=\"($rev)\"" } else { "" }
+        julia -e $"using Pkg; Pkg.Apps.add\(; url=\"($url)\"($rev_part)\)"
+    } else if ($names | is-empty) {
+        error make { msg: "Provide at least one package name or use --url" }
+    } else {
+        let pkg_list = $names | each { |p| $"\"($p)\"" } | str join ", "
+        julia -e $"using Pkg; Pkg.Apps.add\([$pkg_list]\)"
+    }
+}

@@ -1,2 +1,35 @@
 [tools]
+# Runtime
 node = "26"
+python = "latest"
+
+# CLI
+bat = "latest"
+btop = "latest"
+fastfetch = "latest"
+fd = "latest"
+fzf = "latest"
+ripgrep = "latest"
+zoxide = "latest"
+delta = "latest"      # git-delta
+gh = "latest"         # github-cli
+uv = "latest"
+prettier = "latest"
+
+# TUI / terminal
+neovim = "latest"
+tmux = "latest"
+helix = "latest"
+yazi = "latest"
+lazygit = "latest"
+starship = "latest"
+
+# LSP servers
+lua-language-server = "latest"
+
+# Formatters / linters
+stylua = "latest"
+ruff = "latest"
+shfmt = "latest"
+taplo = "latest"
+yamlfmt = "latest"

@@ -1,0 +1,30 @@
+# build tools
+build-essential
+git
+curl
+procps
+file
+
+# system
+openssh-server
+nushell
+fish
+
+# containers
+podman
+podman-compose
+
+# data
+visidata
+
+# latex
+biber
+texlive
+
+# pdf viewer
+zathura
+zathura-pdf-poppler
+
+# fonts
+fonts-ubuntu
+fonts-jetbrains-mono

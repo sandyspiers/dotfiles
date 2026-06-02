@@ -4,3 +4,5 @@ zathura
 zathura-pdf-mupdf
 otf-libertinus
 ttf-poppins
+ttf-ubuntu-font-family
+ttf-jetbrains-mono-nerd

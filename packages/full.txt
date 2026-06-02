@@ -1,5 +1,0 @@
-# fonts
-ttf-ubuntu-font-family
-ttf-jetbrains-mono-nerd
-otf-libertinus
-ttf-poppins

@@ -68,30 +68,19 @@ Install git and clone this repo anywhere, then run `bootstrap.sh`.
 ```bash
 git clone https://github.com/sandyspiers/chezmoi.git
 cd chezmoi
-bash bootstrap.sh          # dev (default)
-bash bootstrap.sh minimal  # minimal
-bash bootstrap.sh full     # full
+bash bootstrap.sh
 ```
 
-#### Installation Levels
+This installs all packages from [`packages/dev.txt`](./packages/dev.txt).
 
-Three cumulative levels are supported:
+#### Optional extras
 
-| Level     | Packages                                                                   | Use case                   |
-| --------- | -------------------------------------------------------------------------- | -------------------------- |
-| `minimal` | shells, core CLI tools (bat, fzf, ripgrep...), helix, tmux, yazi           | Quick setup on any machine |
-| `dev`     | minimal + neovim + LSPs/formatters, git tools, node, python, julia, podman | Development workstation    |
-| `full`    | dev + fonts                                                                | Full workstation           |
-
-#### LaTeX (optional)
-
-LaTeX is not included in any level. To install it separately after bootstrapping:
+These are not included in the base bootstrap and must be run separately:
 
 ```bash
-bash latex.sh
+bash julia.sh  # juliaup, JETLS, JuliaFormatter, Runic
+bash latex.sh  # texlive, biber, zathura, fonts
 ```
-
-This installs texlive, biber, zathura, and a handful of fonts from [`packages/latex.txt`](./packages/latex.txt).
 
 ## Ubuntu (via Distrobox)
 
@@ -122,4 +111,4 @@ distrobox-export --bin $(which lazygit)
 #### Notes
 
 - `bootstrap.sh` clones the chezmoi dotfiles over HTTPS — if you plan to push changes, update the remote afterwards.
-- Julia apps (`JETLS`, `JuliaFormatter`, `Runic`) are installed as part of the `dev` level via the `julia-app` helper script.
+- Julia apps (`JETLS`, `JuliaFormatter`, `Runic`) are installed separately via `julia.sh`.

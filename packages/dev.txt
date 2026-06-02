@@ -1,3 +1,25 @@
+# system
+curl
+git
+openssh
+nushell
+fish
+
+# terminal
+starship
+zoxide
+fzf
+bat
+fd
+ripgrep
+fastfetch
+btop
+
+# editors / navigation
+helix
+tmux
+yazi
+
 # neovim + lsp / formatters
 neovim
 lua-language-server
@@ -17,9 +39,6 @@ github-cli
 nodejs
 python
 uv
-
-# julia
-juliaup
 
 # data
 visidata

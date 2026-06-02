@@ -2,12 +2,6 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LEVEL="${1:-dev}"
-
-case "$LEVEL" in
-    minimal|dev|full) ;;
-    *) echo "Usage: $0 [minimal|dev|full]" >&2; exit 1 ;;
-esac
 
 log() { echo "==> $*"; }
 
@@ -30,18 +24,8 @@ bootstrap() {
         rm -rf "$tmp"
     fi
 
-    log "Installing minimal packages..."
-    pkgs minimal.txt | xargs yay -S --needed --noconfirm
-
-    if [ "$LEVEL" = "dev" ] || [ "$LEVEL" = "full" ]; then
-        log "Installing dev packages..."
-        pkgs dev.txt | xargs yay -S --needed --noconfirm
-    fi
-
-    if [ "$LEVEL" = "full" ]; then
-        log "Installing full packages..."
-        pkgs full.txt | xargs yay -S --needed --noconfirm
-    fi
+    log "Installing packages..."
+    pkgs dev.txt | xargs yay -S --needed --noconfirm
 }
 
 # ── setup ─────────────────────────────────────────────────────────────────────
@@ -52,13 +36,6 @@ setup_dotfiles() {
         chezmoi init sandyspiers
     fi
     chezmoi apply
-}
-
-setup_julia() {
-    log "Setting up Julia..."
-    juliaup add release
-    julia-app --url https://github.com/aviatesk/JETLS.jl --rev release
-    julia-app JuliaFormatter Runic
 }
 
 install_tpm() {
@@ -77,12 +54,11 @@ create_dirs() {
 
 # ── main ──────────────────────────────────────────────────────────────────────
 
-export PATH="$HOME/.local/bin:$HOME/.juliaup/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 bootstrap
 setup_dotfiles
-[ "$LEVEL" != "minimal" ] && setup_julia
 install_tpm
 create_dirs
 
-log "Done! (level: $LEVEL)"
+log "Done!"

@@ -16,7 +16,6 @@ source ssh.nu
 source zoxide.nu
 source starship.nu
 source yazi.nu
-source mise.nu
 
 # Completions (keep this for last)
 source completions.nu

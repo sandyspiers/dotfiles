@@ -4,7 +4,7 @@ return {
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
-      python = { "ruff_format", "ruff_organize_imports" },
+      python = { "ruff_format" },
       julia = { "runic" },
       sh = { "shfmt" },
       bash = { "shfmt" },

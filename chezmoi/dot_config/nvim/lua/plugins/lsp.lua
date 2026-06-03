@@ -1,6 +1,8 @@
 local servers = {
   "lua_ls",
   "julials",
+  "pyright",
+  "ruff",
 }
 
 return {

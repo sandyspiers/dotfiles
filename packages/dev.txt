@@ -25,6 +25,7 @@ neovim
 lua-language-server
 stylua
 ruff
+pyright
 shfmt
 taplo
 prettier

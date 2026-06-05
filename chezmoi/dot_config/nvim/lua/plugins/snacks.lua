@@ -12,7 +12,21 @@ return {
     explorer = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      layouts = {
+        sidebar = {
+          layout = {
+            width = 25,
+            min_width = 25,
+          },
+        },
+      },
+      sources = {
+        explorer = { hidden = true },
+        files = { hidden = true },
+      },
+    },
     notifier = { enabled = true },
     quickfile = { enabled = true },
     scope = { enabled = true },

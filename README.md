@@ -66,7 +66,7 @@ default=sandy
 Install git and clone this repo anywhere, then run `bootstrap.sh`.
 
 ```bash
-git clone https://github.com/sandyspiers/chezmoi.git
+git clone https://github.com/sandyspiers/dotfiles.git
 cd chezmoi
 bash bootstrap.sh
 ```
@@ -100,7 +100,7 @@ Enter the container and bootstrap as normal:
 
 ```bash
 distrobox enter arch
-git clone https://github.com/sandyspiers/chezmoi.git
+git clone https://github.com/sandyspiers/dotfiles.git
 cd chezmoi && bash bootstrap.sh
 ```
 

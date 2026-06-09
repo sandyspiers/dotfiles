@@ -88,17 +88,20 @@ bash latex.sh  # texlive, biber, zathura, fonts
 Arch container via [Distrobox](https://distrobox.it), which shares your home directory
 so dotfiles apply to both host and container.
 
+First, install Docker by following the [official Ubuntu instructions](https://docs.docker.com/engine/install/ubuntu/).
+
+Then run `ubuntu.sh` to install Distrobox and create the Arch container:
+
 ```bash
-sudo apt install distrobox podman
-distrobox create --image archlinux --name arch
-distrobox enter arch
+bash ubuntu.sh
 ```
 
-Once inside, bootstrap as normal:
+Enter the container and bootstrap as normal:
 
 ```bash
-git clone https://github.com/sandyspiers/dotfiles.git
-cd dotfiles && bash bootstrap.sh
+distrobox enter arch
+git clone https://github.com/sandyspiers/chezmoi.git
+cd chezmoi && bash bootstrap.sh
 ```
 
 To make tools available outside the container, export the binaries you want on the host:

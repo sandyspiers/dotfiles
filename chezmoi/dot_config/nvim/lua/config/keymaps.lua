@@ -66,10 +66,7 @@ vim.keymap.set("n", "<leader>za", "zM", { desc = "Close all folds", remap = true
 vim.keymap.set("n", "<leader>zo", "zR", { desc = "Open all folds", remap = true })
 vim.keymap.set("n", "<leader>zt", function()
   vim.opt.foldlevel = 1
-end, { desc = "Fold to top level" })
-vim.keymap.set("n", "<leader>zm", function()
-  vim.opt.foldlevel = 2
-end, { desc = "Fold to module level" })
+end, { desc = "Fold to level 1" })
 
 -- Find (snacks picker)
 vim.keymap.set("n", "<leader>ff", function()

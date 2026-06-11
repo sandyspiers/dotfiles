@@ -65,6 +65,7 @@
 | `<leader>li` | LSP: implementation | `<leader>lR` | LSP: references |
 | `<leader>lr` | LSP: rename | `<leader>la` | LSP: code action |
 | `<leader>lf` | LSP: format | `<leader>ls` | LSP: symbols |
+| `<leader>lS` | LSP: workspace symbols | | |
 | `K` | LSP: hover | | |
 | `<leader>gs` | Git: stage hunk | `<leader>gu` | Git: unstage hunk |
 | `<leader>gp` | Git: preview hunk | `<leader>gb` | Git: blame line |

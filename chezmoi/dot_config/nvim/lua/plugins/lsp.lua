@@ -28,6 +28,9 @@ return {
         map("<leader>ls", function()
           Snacks.picker.lsp_symbols()
         end, "Symbols")
+        map("<leader>lS", function()
+          Snacks.picker.lsp_workspace_symbols()
+        end, "Workspace symbols")
       end,
     })
   end,

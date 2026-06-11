@@ -24,6 +24,11 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 -- Save
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save" })
 
+-- Format
+vim.keymap.set("n", "<leader>lf", function()
+  require("conform").format({ lsp_format = "fallback" })
+end, { desc = "Format" })
+
 -- Quit
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 

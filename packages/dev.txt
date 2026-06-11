@@ -28,8 +28,8 @@ ruff
 pyright
 shfmt
 taplo
-prettier
 yamlfmt
+mdformat
 
 # git tools
 lazygit

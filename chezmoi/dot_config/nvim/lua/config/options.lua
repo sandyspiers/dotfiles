@@ -19,18 +19,18 @@ opt.signcolumn = "yes" -- always reserve space for signs; prevents layout shifts
 opt.scrolloff = 4 -- keep 4 lines visible above/below cursor
 opt.sidescrolloff = 8 -- keep 8 columns visible left/right of cursor
 opt.pumheight = 10 -- max lines in completion popup
-opt.wrap = false
+opt.wrap = true
 opt.linebreak = true -- when wrap is enabled, break at word boundaries not mid-word
 opt.smoothscroll = true -- scroll by screen lines rather than file lines when wrapping
-opt.conceallevel = 2 -- hide markup characters (e.g. * in markdown), show substitutions
+opt.conceallevel = 0 -- dont hide markup characters
 
 -------------------------------------------------------------------------------
 -- Editing
 -------------------------------------------------------------------------------
 
 opt.expandtab = true -- spaces instead of tabs
-opt.shiftwidth = 2
-opt.tabstop = 2
+opt.shiftwidth = 4
+opt.tabstop = 4
 opt.shiftround = true -- round indents to nearest shiftwidth multiple
 opt.smartindent = true
 opt.ignorecase = true
@@ -74,4 +74,4 @@ opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus"
 -- Spelling
 -------------------------------------------------------------------------------
 
-opt.spelllang = { "en" }
+opt.spelllang = { "en_gb", "en_us" }

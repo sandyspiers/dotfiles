@@ -48,11 +48,19 @@ end, { desc = "Close other buffers" })
 vim.keymap.set("n", "<leader>bi", function()
   Snacks.bufdelete.invisible()
 end, { desc = "Close invisible buffers" })
+vim.keymap.set("n", "<leader>ba", function()
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buflisted then
+      Snacks.bufdelete(buf)
+    end
+  end
+end, { desc = "Close all buffers" })
 
 -- Windows
 vim.keymap.set("n", "<leader>wv", "<C-W>v", { desc = "Vertical split", remap = true })
 vim.keymap.set("n", "<leader>ws", "<C-W>s", { desc = "Horizontal split", remap = true })
 vim.keymap.set("n", "<leader>wx", "<C-W>c", { desc = "Close window", remap = true })
+vim.keymap.set("n", "<leader>wq", "<C-W>q", { desc = "Quit window", remap = true })
 vim.keymap.set("n", "<leader>wo", "<cmd>only<cr>", { desc = "Close other windows" })
 
 -- Window resize (chords)
@@ -72,6 +80,9 @@ end, { desc = "Fold to level 1" })
 vim.keymap.set("n", "<leader>ff", function()
   Snacks.picker.files()
 end, { desc = "Find files" })
+vim.keymap.set("n", "<leader>fd", function()
+  Snacks.picker.files({ cwd = vim.fn.expand("%:p:h") })
+end, { desc = "Find in current dir" })
 vim.keymap.set("n", "<leader>fg", function()
   Snacks.picker.grep()
 end, { desc = "Grep" })

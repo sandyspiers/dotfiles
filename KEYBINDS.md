@@ -69,17 +69,19 @@
 | `<leader>gs` | Git: stage hunk | `<leader>gu` | Git: unstage hunk |
 | `<leader>gp` | Git: preview hunk | `<leader>gb` | Git: blame line |
 | `<leader>gd` | Git: diff | | |
-| `<leader>ff` | Find: files | `<leader>fg` | Find: grep |
-| `<leader>fb` | Find: buffers | `<leader>fr` | Find: recent |
-| `<leader>fn` | Find: new file | `<leader>fh` | Find: help |
+| `<leader>ff` | Find: files | `<leader>fd` | Find: current dir |
+| `<leader>fg` | Find: grep | `<leader>fb` | Find: buffers |
+| `<leader>fr` | Find: recent | `<leader>fn` | Find: new file |
+| `<leader>fh` | Find: help | | |
 | `<leader>dd` | Diag: document | `<leader>dw` | Diag: workspace |
 | `<leader>za` | Fold: close all | `<leader>zo` | Fold: open all |
 | `<leader>zt` | Fold: top level | `<leader>zm` | Fold: module level |
 | `<leader>wv` | Window: vert split | `<leader>ws` | Window: horiz split |
 | `<leader>wx` | Window: close | `<leader>wo` | Window: close others |
-| `<leader>wm` | Window: zoom toggle | | |
+| `<leader>wq` | Window: quit | `<leader>wm` | Window: zoom toggle |
 | `<leader>bb` | Buffer: alternate | `<leader>bx` | Buffer: close |
 | `<leader>bo` | Buffer: close others | `<leader>bi` | Buffer: close invisible |
+| `<leader>ba` | Buffer: close all | | |
 | `<leader>ra` | Replace: all in file | `<leader>rf` | Replace: forward (repeat `.`) |
 | `<leader>rb` | Replace: backward (repeat `.`) | `<leader>rf` | Replace: forward (visual) |
 | `<leader>ts` | Toggle: spell | `<leader>tw` | Toggle: wrap |

@@ -104,6 +104,12 @@ git clone https://github.com/sandyspiers/dotfiles.git
 cd chezmoi && bash bootstrap.sh
 ```
 
+After bootstrapping, nushell is the default shell in the container. Re-enter with:
+
+```nu
+distrobox enter arch -- nu
+```
+
 To make tools available outside the container, export the binaries you want on the host:
 
 ```bash

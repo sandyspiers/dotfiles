@@ -47,3 +47,17 @@ def tmux-attach-fzf [] {
 }
 alias tf = tmux-attach-fzf
 
+# ======
+# Pandoc
+# ======
+
+def mdf [
+    file: path,
+    --template: string = "ccods"
+    --out-dir: path = "."
+] {
+    let stem = ($file | path parse | get stem)
+    let out = ($out_dir | path join $"($stem).pdf")
+    pandoc $file --template $template --pdf-engine lualatex -o $out --listings
+    print $"Built ($out)"
+}

@@ -13,6 +13,18 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = { options = { theme = "dracula-nvim" } },
+    opts = {
+      options = {
+        theme = "dracula-nvim",
+      },
+      sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "diff", "diagnostics" },
+        lualine_c = { "filename" },
+        lualine_x = { "lsp_status" },
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
+      },
+    },
   },
 }

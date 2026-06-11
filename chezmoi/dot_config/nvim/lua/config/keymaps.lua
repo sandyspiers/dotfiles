@@ -62,11 +62,23 @@ vim.keymap.set("n", "<leader>ba", function()
 end, { desc = "Close all buffers" })
 
 -- Windows
+vim.keymap.set("n", "<leader>wh", "<C-W>h", { desc = "Go left", remap = true })
+vim.keymap.set("n", "<leader>wj", "<C-W>j", { desc = "Go down", remap = true })
+vim.keymap.set("n", "<leader>wk", "<C-W>k", { desc = "Go up", remap = true })
+vim.keymap.set("n", "<leader>wl", "<C-W>l", { desc = "Go right", remap = true })
 vim.keymap.set("n", "<leader>wv", "<C-W>v", { desc = "Vertical split", remap = true })
 vim.keymap.set("n", "<leader>ws", "<C-W>s", { desc = "Horizontal split", remap = true })
 vim.keymap.set("n", "<leader>wx", "<C-W>c", { desc = "Close window", remap = true })
 vim.keymap.set("n", "<leader>wq", "<C-W>q", { desc = "Quit window", remap = true })
 vim.keymap.set("n", "<leader>wo", "<cmd>only<cr>", { desc = "Close other windows" })
+vim.keymap.set("n", "<leader>wt", function()
+  local layout = vim.fn.winlayout()
+  if layout[1] == "row" then
+    vim.cmd("wincmd K")
+  else
+    vim.cmd("wincmd H")
+  end
+end, { desc = "Transpose windows" })
 
 -- Window resize (chords)
 vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })

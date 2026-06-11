@@ -77,9 +77,11 @@
 | `<leader>dd` | Diag: document | `<leader>dw` | Diag: workspace |
 | `<leader>za` | Fold: close all | `<leader>zo` | Fold: open all |
 | `<leader>zt` | Fold: top level | `<leader>zm` | Fold: module level |
+| `<leader>wh/j/k/l` | Window: navigate | | |
 | `<leader>wv` | Window: vert split | `<leader>ws` | Window: horiz split |
 | `<leader>wx` | Window: close | `<leader>wo` | Window: close others |
-| `<leader>wq` | Window: quit | `<leader>wm` | Window: zoom toggle |
+| `<leader>wq` | Window: quit | `<leader>wt` | Window: transpose |
+| `<leader>wm` | Window: zoom toggle | | |
 | `<leader>bb` | Buffer: alternate | `<leader>bx` | Buffer: close |
 | `<leader>bo` | Buffer: close others | `<leader>bi` | Buffer: close invisible |
 | `<leader>ba` | Buffer: close all | | |

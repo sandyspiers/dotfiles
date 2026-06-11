@@ -75,3 +75,20 @@ opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus"
 -------------------------------------------------------------------------------
 
 opt.spelllang = { "en_gb", "en_us" }
+
+-------------------------------------------------------------------------------
+-- Diagnostics
+-------------------------------------------------------------------------------
+
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "󰅚",
+      [vim.diagnostic.severity.WARN]  = "󰀪",
+      [vim.diagnostic.severity.INFO]  = "󰋽",
+      [vim.diagnostic.severity.HINT]  = "󰌶",
+    },
+  },
+  float = { border = "rounded" },
+})
+

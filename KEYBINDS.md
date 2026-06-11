@@ -74,7 +74,8 @@
 | `<leader>fg` | Find: grep | `<leader>fb` | Find: buffers |
 | `<leader>fr` | Find: recent | `<leader>fn` | Find: new file |
 | `<leader>fh` | Find: help | | |
-| `<leader>dd` | Diag: document | `<leader>dw` | Diag: workspace |
+| `<leader>dh` | Diag: hover | `<leader>dd` | Diag: document |
+| `<leader>dw` | Diag: workspace | | |
 | `<leader>za` | Fold: close all | `<leader>zo` | Fold: open all |
 | `<leader>zt` | Fold: top level | `<leader>zm` | Fold: module level |
 | `<leader>wh/j/k/l` | Window: navigate | | |

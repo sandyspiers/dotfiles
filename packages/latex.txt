@@ -1,5 +1,7 @@
 biber
 texlive-meta
+texlab
+chktex
 zathura
 zathura-pdf-mupdf
 otf-libertinus

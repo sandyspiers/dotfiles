@@ -3,6 +3,7 @@ local servers = {
   "julials",
   "pyright",
   "ruff",
+  "texlab",
 }
 
 return {

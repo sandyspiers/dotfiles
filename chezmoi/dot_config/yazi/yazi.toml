@@ -7,4 +7,7 @@ csv = [{ run = 'visidata "$@"', block = true, desc = "visidata" }]
 open = [{ run = 'xdg-open "$@"', orphan = true, desc = "open", for = "linux" }]
 
 [open]
-prepend_rules = [{ url = "*.csv", use = "csv" }]
+prepend_rules = [
+  { url = "*.csv", use = "csv" },
+  { url = "*.html", use = "open" },
+]

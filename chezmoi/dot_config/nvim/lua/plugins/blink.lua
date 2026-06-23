@@ -7,6 +7,8 @@ return {
     "rafamadriz/friendly-snippets",
   },
 
+  version = "1.*",
+
   build = function()
     -- build the fuzzy matcher, wait up to 60 seconds
     -- you can use `gb` in `:Lazy` to rebuild the plugin as needed

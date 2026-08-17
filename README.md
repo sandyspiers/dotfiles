@@ -26,11 +26,14 @@ See more in [KEYBINDS.md](./KEYBINDS.md)
 
 ## Install
 
-## Arch
+At the moment we only support Arch.
+For Ubuntu, use Distrobox (described below).
+
+### Arch
 
 First step is to setup Arch.
 
-### Using ISO
+#### Using ISO
 
 1. Boot in Arch ISO
 1. Setup internet using ethernet or `iwctl`
@@ -38,7 +41,7 @@ First step is to setup Arch.
 1. Run `archinstall`, choosing appropriate defaults
 1. Reboot and login, clone down repo and carry on below
 
-### Using WSL
+#### Using WSL
 
 1. In powershell, run `wsl --install archlinux`,
    this should take you string into arch
@@ -61,13 +64,13 @@ default=sandy
 1. To get some things working with parent windows, install `xdg-utils`
 1. If the locale is an issue, run `sudo vim /etc/locale.gen` and uncomment the correct one, then run `sudo locale-gen`
 
-### Once logged in
+#### Once logged in
 
 Install git and clone this repo anywhere, then run `bootstrap.sh`.
 
 ```bash
 git clone https://github.com/sandyspiers/dotfiles.git
-cd chezmoi
+cd dotfiles
 bash bootstrap.sh
 ```
 
@@ -78,11 +81,11 @@ This installs all packages from [`packages/dev.txt`](./packages/dev.txt).
 These are not included in the base bootstrap and must be run separately:
 
 ```bash
-bash julia.sh  # juliaup, JETLS, JuliaFormatter, Runic
+bash julia.sh  # julia (via juliaup), JETLS, JuliaFormatter, Runic
 bash latex.sh  # texlive, biber, zathura, fonts
 ```
 
-## Ubuntu (via Distrobox)
+### Ubuntu (via Distrobox)
 
 `bootstrap.sh` only supports Arch. On Ubuntu, the recommended approach is to run an
 Arch container via [Distrobox](https://distrobox.it), which shares your home directory
@@ -101,10 +104,10 @@ Enter the container and bootstrap as normal:
 ```bash
 distrobox enter arch
 git clone https://github.com/sandyspiers/dotfiles.git
-cd chezmoi && bash bootstrap.sh
+cd dotfiles && bash bootstrap.sh
 ```
 
-After bootstrapping, nushell is the default shell in the container. Re-enter with:
+Bootstrapping does not change the container's login shell. To use nushell, enter with:
 
 ```nu
 distrobox enter arch -- nu
@@ -120,4 +123,6 @@ distrobox-export --bin $(which lazygit)
 #### Notes
 
 - `bootstrap.sh` clones the chezmoi dotfiles over HTTPS — if you plan to push changes, update the remote afterwards.
-- Julia apps (`JETLS`, `JuliaFormatter`, `Runic`) are installed separately via `julia.sh`.
+- Julia apps (`JETLS`, `JuliaFormatter`, `Runic`) are installed separately via `julia.sh`,
+  which uses the `julia-app` helper (a nushell wrapper around `Pkg.Apps.add`,
+  installed to `~/.local/bin` by chezmoi).

@@ -1,18 +1,15 @@
-# This file exists so that when I do
-# nu -c "..."
-# we have the correct environment variables
+# Loaded by interactive/login shells (nu -l); note plain `nu -c` skips this file
 
 # Environment variables
 $env.SHELL = "nu"
 $env.EDITOR = "nvim"
 $env.JULIA_SHELL = "bash"
 
-# add localbin
-$env.PATH = ($env.PATH | prepend $"($env.HOME)/.local/bin")
-
-# add julia bin
-$env.PATH = ($env.PATH | prepend $"($env.HOME)/.julia/bin")
-
-# add perl paths (this is mostly just for biber)
-$env.PATH = ($env.PATH | prepend "/usr/bin/vendor_perl")
+# PATH is managed here and only here (nu is the single source of truth);
+# uniq keeps nested shells from stacking duplicates
+$env.PATH = ($env.PATH
+    | prepend "/usr/bin/vendor_perl"     # perl (mostly just for biber)
+    | prepend $"($env.HOME)/.julia/bin"  # julia apps (jetls, runic)
+    | prepend $"($env.HOME)/.local/bin"  # own scripts
+    | uniq)
 

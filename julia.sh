@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-export PATH="$HOME/.local/bin:$HOME/.juliaup/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 log() { echo "==> $*"; }
 

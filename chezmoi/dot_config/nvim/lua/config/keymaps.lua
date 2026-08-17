@@ -155,3 +155,12 @@ Snacks.toggle.zen():map("<leader>tz")
 if vim.lsp.inlay_hint then
   Snacks.toggle.inlay_hints():map("<leader>th")
 end
+Snacks.toggle({
+  name = "Autoformat",
+  get = function()
+    return not vim.g.disable_autoformat
+  end,
+  set = function(state)
+    vim.g.disable_autoformat = not state
+  end,
+}):map("<leader>uf")

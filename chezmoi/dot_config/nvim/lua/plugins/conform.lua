@@ -16,8 +16,14 @@ return {
       lsp_format = "fallback",
     },
     format_on_save = function(bufnr)
+      if vim.g.disable_autoformat then
+        return
+      end
       if vim.bo[bufnr].filetype == "markdown" then
         return
+      end
+      if vim.bo[bufnr].filetype == "julia" then
+        return { timeout_ms = 5000 }
       end
       return { timeout_ms = 500 }
     end,

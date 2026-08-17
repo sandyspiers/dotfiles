@@ -10,29 +10,32 @@
 
 ## Tmux
 
-**Prefix:** `M-g`
+**Prefix:** `M-g` (rare ops only — everyday actions are leaderless chords)
+
+Shift-layer convention: lowercase acts on panes, uppercase acts on windows/session
+(`M-x` kill pane / `M-X` kill window, `M-i/o` navigate / `M-I/O` move window, `M-N` new window, `M-D` detach).
 
 ### Chords (no prefix)
 
 | Key | Action | Key | Action |
 |-----|--------|-----|--------|
-| `M-h/j/k/l` | Navigate panes | `M-n` | Cycle layout |
-| `M-i` / `M-o` | Prev / next window | `M-f` | Floating shell |
-| `M-I` / `M-O` | Move window left / right | `M-b` | Floating btop |
-| `M-y` | Floating yazi | `M-t` | Floating fzf-tail |
+| `M-h/j/k/l` | Navigate panes | `M-H/J/K/L` | Resize panes |
+| `M-_` | New pane below | `M-\` | New pane beside |
+| `M-z` | Zoom pane | `M-x` | Kill pane |
+| `M-p` | Break pane to new window | `M-n` | Cycle layout |
+| `M-i` / `M-o` | Prev / next window | `M-I` / `M-O` | Move window left / right |
+| `M-1`–`M-9` | Select window | `M-N` | New window |
+| `M-X` | Kill window | `M-u` | Copy mode |
+| `M-s` | Choose session | `M-D` | Detach |
+| `M-f` | Floating shell | `M-b` | Floating btop |
+| `M-t` | Floating fzf-tail | `M-c` | Floating lazygit |
 
-### Prefix sequences
+### Prefix sequences (rare ops)
 
 | Key | Action | Key | Action |
 |-----|--------|-----|--------|
-| `n` | New pane (split right) | `N` | New window |
-| `x` | Kill pane | `X` | Kill window |
-| `F` | Zoom pane | `r` | Rename window |
-| `v` | Copy mode | `s` | Choose session |
-| `d` | Detach | `q` | Kill server |
-| `1`–`9` | Select window | `H/J/K/L` | Resize pane (repeatable) |
-
-> **Note:** `bind v split-window -v` is overridden by `bind v copy-mode` in `tmux.conf` — vertical split has no effective binding.
+| `r` | Rename window | `q` | Kill server (confirm) |
+| `[` / `]` | Join pane into prev / next window | | |
 
 ---
 
@@ -78,6 +81,8 @@
 | `<leader>dw` | Diag: workspace | | |
 | `<leader>za` | Fold: close all | `<leader>zo` | Fold: open all |
 | `<leader>zt` | Fold: top level | `<leader>zm` | Fold: module level |
+| `h` (at line start) | Fold: close (origami) | `l` (on fold) | Fold: open recursively (origami, custom `zO`) |
+| `^` (at line start) | Fold: close recursively (origami) | `$` (on fold) | Fold: open recursively (origami) |
 | `<leader>wh/j/k/l` | Window: navigate | | |
 | `<leader>wv` | Window: vert split | `<leader>ws` | Window: horiz split |
 | `<leader>wx` | Window: close | `<leader>wo` | Window: close others |
@@ -91,6 +96,7 @@
 | `<leader>ts` | Toggle: spell | `<leader>tw` | Toggle: wrap |
 | `<leader>tr` | Toggle: relative numbers | `<leader>td` | Toggle: diagnostics |
 | `<leader>th` | Toggle: inlay hints | `<leader>tz` | Toggle: zen |
+| `<leader>uf` | Toggle: autoformat | | |
 | `<leader>uu` | Undotree: toggle | `<leader>e` | Toggle explorer |
 | `<leader>L` | Lazy plugin manager | `<leader>qq` | Quit all |
 

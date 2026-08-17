@@ -14,6 +14,7 @@
 
 Shift-layer convention: lowercase acts on panes, uppercase acts on windows/session
 (`M-x` kill pane / `M-X` kill window, `M-i/o` navigate / `M-I/O` move window, `M-N` new window, `M-D` detach).
+Exceptions: `M-H/J/K/L` resize panes (shifted form of pane navigation) and `M-s` chooses session.
 
 ### Chords (no prefix)
 
@@ -35,7 +36,14 @@ Shift-layer convention: lowercase acts on panes, uppercase acts on windows/sessi
 | Key | Action | Key | Action |
 |-----|--------|-----|--------|
 | `r` | Rename window | `q` | Kill server (confirm) |
-| `[` / `]` | Join pane into prev / next window | | |
+| `[` / `]` | Join pane into prev / next window | `M-g` | Send literal `M-g` through |
+
+### Copy mode (`M-u`, vi keys)
+
+| Key | Action |
+|-----|--------|
+| `v` | Begin selection |
+| `y` | Copy selection and exit |
 
 ---
 
@@ -59,6 +67,19 @@ Shift-layer convention: lowercase acts on panes, uppercase acts on windows/sessi
 | Key | Action |
 |-----|--------|
 | `J` / `K` | Move selection down / up |
+| `<` / `>` | Indent and keep selection |
+
+### Remapped built-ins
+
+| Key | Action |
+|-----|--------|
+| `n` / `N` | Search next / prev — always forward / backward, regardless of search direction |
+| `j` / `k` | Move by display line on wrapped lines (unless counted) |
+| `K` | LSP hover |
+| `<CR>` | Accept completion (blink.cmp, insert mode with menu open) |
+| `h` (at line start) | Fold: close (origami) |
+| `^` (at line start) | Fold: close recursively (origami) |
+| `l` / `$` (on fold) | Fold: open recursively (origami, both remapped to `zO`) |
 
 ### Leader sequences
 
@@ -67,22 +88,19 @@ Shift-layer convention: lowercase acts on panes, uppercase acts on windows/sessi
 | `<leader>ld` | LSP: definition | `<leader>lD` | LSP: declaration |
 | `<leader>li` | LSP: implementation | `<leader>lR` | LSP: references |
 | `<leader>lr` | LSP: rename | `<leader>la` | LSP: code action |
-| `<leader>lf` | LSP: format | `<leader>ls` | LSP: symbols |
+| `<leader>lf` | Format buffer (conform, LSP fallback) | `<leader>ls` | LSP: symbols |
 | `<leader>lS` | LSP: workspace symbols | | |
-| `K` | LSP: hover | | |
 | `<leader>gs` | Git: stage hunk | `<leader>gu` | Git: unstage hunk |
 | `<leader>gp` | Git: preview hunk | `<leader>gb` | Git: blame line |
-| `<leader>gd` | Git: diff | | |
+| `<leader>gd` | Git: diff | `<leader>gr` | Git: reset hunk |
 | `<leader>ff` | Find: files | `<leader>fd` | Find: current dir |
 | `<leader>fg` | Find: grep | `<leader>fb` | Find: buffers |
 | `<leader>fr` | Find: recent | `<leader>fn` | Find: new file |
-| `<leader>fh` | Find: help | | |
+| `<leader>fh` | Find: help | `<leader>fc` | Find: changed files (git status) |
 | `<leader>dh` | Diag: hover | `<leader>dd` | Diag: document |
 | `<leader>dw` | Diag: workspace | | |
 | `<leader>za` | Fold: close all | `<leader>zo` | Fold: open all |
-| `<leader>zt` | Fold: top level | `<leader>zm` | Fold: module level |
-| `h` (at line start) | Fold: close (origami) | `l` (on fold) | Fold: open recursively (origami, custom `zO`) |
-| `^` (at line start) | Fold: close recursively (origami) | `$` (on fold) | Fold: open recursively (origami) |
+| `<leader>zt` | Fold: to level 1 | | |
 | `<leader>wh/j/k/l` | Window: navigate | | |
 | `<leader>wv` | Window: vert split | `<leader>ws` | Window: horiz split |
 | `<leader>wx` | Window: close | `<leader>wo` | Window: close others |
@@ -96,9 +114,9 @@ Shift-layer convention: lowercase acts on panes, uppercase acts on windows/sessi
 | `<leader>ts` | Toggle: spell | `<leader>tw` | Toggle: wrap |
 | `<leader>tr` | Toggle: relative numbers | `<leader>td` | Toggle: diagnostics |
 | `<leader>th` | Toggle: inlay hints | `<leader>tz` | Toggle: zen |
-| `<leader>uf` | Toggle: autoformat | | |
-| `<leader>uu` | Undotree: toggle | `<leader>e` | Toggle explorer |
+| `<leader>uf` | Toggle: autoformat | `<leader>e` | Toggle explorer |
 | `<leader>L` | Lazy plugin manager | `<leader>qq` | Quit all |
+| `<leader>?` | Which-key: buffer-local keymaps | | |
 
 ### Built-ins (kept as-is)
 

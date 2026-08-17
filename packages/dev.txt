@@ -4,6 +4,9 @@ git
 openssh
 nushell
 fish
+less
+xdg-utils
+wl-clipboard
 
 # terminal
 starship
@@ -16,18 +19,23 @@ fastfetch
 btop
 
 # editors / navigation
-helix
 tmux
 yazi
 
+# yazi previews
+jq
+7zip
+poppler
+
 # neovim + lsp / formatters
 neovim
+tree-sitter-cli
 lua-language-server
 stylua
 ruff
 pyright
 shfmt
-taplo
+taplo-cli
 yamlfmt
 mdformat
 
@@ -42,8 +50,9 @@ python
 uv
 juliaup
 
-# data
+# data / docs
 visidata
+pandoc-cli
 
 # containers
 podman

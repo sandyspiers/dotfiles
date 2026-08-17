@@ -11,6 +11,11 @@ check_docker() {
     echo "Install it from https://docs.docker.com/engine/install/ubuntu/ then re-run this script."
     exit 1
   fi
+  if ! docker info &>/dev/null; then
+    echo "Error: Docker is installed but not usable (daemon not running, or you lack permission)."
+    echo "If it's a permission issue: sudo usermod -aG docker \$USER, then log out and back in."
+    exit 1
+  fi
   log "Docker found."
 }
 
@@ -22,13 +27,19 @@ install_distrobox() {
     return
   fi
 
+  if ! command -v curl &>/dev/null; then
+    echo "Error: curl is required. Install it with: sudo apt install curl"
+    exit 1
+  fi
+
   log "Installing Distrobox..."
-  curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install |
+  curl -fsSL https://raw.githubusercontent.com/89luca89/distrobox/main/install |
     sudo sh
 }
 
 create_arch_container() {
-  if distrobox list 2>/dev/null | grep -q "^arch"; then
+  # distrobox list prints "ID | NAME | ..." so match the NAME column exactly
+  if distrobox list --no-color 2>/dev/null | awk -F'|' 'NR>1 {gsub(/ /,"",$2); print $2}' | grep -qx arch; then
     log "Arch container already exists, skipping..."
     return
   fi

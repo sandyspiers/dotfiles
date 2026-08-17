@@ -12,7 +12,7 @@ return {
       { "<leader>w", group = "Window" },
       { "<leader>t", group = "Toggle" },
       { "<leader>r", group = "Replace" },
-      { "<leader>u", group = "Undotree" },
+      { "<leader>u", group = "Autoformat" },
     },
   },
   keys = {

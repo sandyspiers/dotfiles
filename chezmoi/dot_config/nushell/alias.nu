@@ -16,6 +16,3 @@ def jlg [name: string] {
 
 # git
 alias lg = lazygit
-
-# utils
-alias helix-log = tail -f ~/.cache/helix/helix.log

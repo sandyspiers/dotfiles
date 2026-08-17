@@ -1,15 +1,12 @@
 promptToReturnFromSubprocess: false
-
 git:
-  pagers:
-    - pager: delta --paging=never
-
+  diffRenderers:
+    - command: delta --paging=never
 gui:
   # Nerd fonts version to use.
   # One of: '2' | '3' | empty string (default)
   # If empty, do not show icons.
   nerdFontsVersion: "3"
-  
   # DRACULA
   theme:
     activeBorderColor:
@@ -17,34 +14,24 @@ gui:
       - bold
     inactiveBorderColor:
       - "#BD93F9"
-
     searchingActiveBorderColor:
       - "#8BE9FD"
       - bold
-
     optionsTextColor:
       - "#6272A4"
-
     selectedLineBgColor:
       - "#6272A4"
-
     inactiveViewSelectedLineBgColor:
       - bold
-
     cherryPickedCommitFgColor:
       - "#6272A4"
-
     cherryPickedCommitBgColor:
       - "#8BE9FD"
-
     markedBaseCommitFgColor:
       - "#8BE9FD"
-
     markedBaseCommitBgColor:
       - "#F1FA8C"
-
     unstagedChangesColor:
       - "#FF5555"
-
     defaultFgColor:
       - "#F8F8F2"

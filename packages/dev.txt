@@ -38,6 +38,7 @@ shfmt
 taplo-cli
 yamlfmt
 mdformat
+mdformat-front-matters-git
 
 # git tools
 lazygit

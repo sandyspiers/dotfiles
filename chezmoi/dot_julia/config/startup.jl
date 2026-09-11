@@ -1,10 +1,4 @@
 try
-    import OhMyREPL
-catch _
-    println("Could not import OhMyREPL!")
-end
-
-try
     using Revise
 catch _
     println("Could not import Revise!")

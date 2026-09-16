@@ -3,8 +3,8 @@ show_hidden = true
 show_symlink = true
 
 [opener]
-csv = [{ run = 'visidata "$@"', block = true, desc = "visidata" }]
-open = [{ run = 'xdg-open "$@"', orphan = true, desc = "open", for = "linux" }]
+csv = [{ run = 'visidata %s', block = true, desc = "visidata" }]
+open = [{ run = 'xdg-open %s', orphan = true, desc = "open", for = "linux" }]
 
 [open]
 prepend_rules = [

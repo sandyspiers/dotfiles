@@ -21,6 +21,7 @@ btop
 # editors / navigation
 tmux
 yazi
+glow
 
 # yazi previews
 jq

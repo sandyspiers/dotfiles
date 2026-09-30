@@ -10,40 +10,8 @@
 
 ## Tmux
 
-**Prefix:** `M-g` (rare ops only — everyday actions are leaderless chords)
-
-Shift-layer convention: lowercase acts on panes, uppercase acts on windows/session
-(`M-x` kill pane / `M-X` kill window, `M-i/o` navigate / `M-I/O` move window, `M-N` new window, `M-D` detach).
-Exceptions: `M-H/J/K/L` resize panes (shifted form of pane navigation) and `M-s` chooses session.
-
-### Chords (no prefix)
-
-| Key | Action | Key | Action |
-|-----|--------|-----|--------|
-| `M-h/j/k/l` | Navigate panes | `M-H/J/K/L` | Resize panes |
-| `M-_` | New pane below | `M-\` | New pane beside |
-| `M-z` | Zoom pane | `M-x` | Kill pane |
-| `M-p` | Break pane to new window | `M-n` | Cycle layout |
-| `M-i` / `M-o` | Prev / next window | `M-I` / `M-O` | Move window left / right |
-| `M-1`–`M-9` | Select window | `M-N` | New window |
-| `M-X` | Kill window | `M-u` | Copy mode |
-| `M-s` | Choose session | `M-D` | Detach |
-| `M-f` | Floating shell | `M-b` | Floating btop |
-| `M-t` | Floating fzf-tail | `M-c` | Floating lazygit |
-
-### Prefix sequences (rare ops)
-
-| Key | Action | Key | Action |
-|-----|--------|-----|--------|
-| `r` | Rename window | `q` | Kill server (confirm) |
-| `[` / `]` | Join pane into prev / next window | `M-g` | Send literal `M-g` through |
-
-### Copy mode (`M-u`, vi keys)
-
-| Key | Action |
-|-----|--------|
-| `v` | Begin selection |
-| `y` | Copy selection and exit |
+See [`chezmoi/dot_config/keybinds/tmux.md`](chezmoi/dot_config/keybinds/tmux.md), deployed to `~/.config/keybinds/tmux.md`.
+Browse all sheets in `~/.config/keybinds` from tmux with `M-f` then `k`.
 
 ---
 

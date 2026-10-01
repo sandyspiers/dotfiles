@@ -4,7 +4,7 @@ show_symlink = true
 
 [opener]
 csv = [{ run = 'visidata %s', block = true, desc = "visidata" }]
-open = [{ run = 'xdg-open %s', orphan = true, desc = "open", for = "linux" }]
+open = [{ run = 'xdg-open %s1', orphan = true, desc = "open", for = "linux" }]
 
 [open]
 prepend_rules = [

@@ -1,0 +1,37 @@
+# Additions to yazi's default keymap; cheat sheet in ~/.config/keybinds/yazi.md
+
+[[mgr.prepend_keymap]]
+on = ["g", "p"]
+run = "cd ~/files/projects"
+desc = "Go to ~/files/projects"
+
+[[mgr.prepend_keymap]]
+on = ["g", "r"]
+run = "cd ~/files/research"
+desc = "Go to ~/files/research"
+
+[[mgr.prepend_keymap]]
+on = ["g", "s"]
+run = "cd ~/files/scratch"
+desc = "Go to ~/files/scratch"
+
+[[mgr.prepend_keymap]]
+on = ["g", "a"]
+run = "cd ~/files/admin"
+desc = "Go to ~/files/admin"
+
+[[mgr.prepend_keymap]]
+on = ["g", "o"]
+run = "cd ~/files/tools"
+desc = "Go to ~/files/tools"
+
+[[mgr.prepend_keymap]]
+on = ["g", "F"]
+run = "cd ~/files/forks"
+desc = "Go to ~/files/forks"
+
+# Blocks so tmux can take the terminal when attaching from outside tmux
+[[mgr.prepend_keymap]]
+on = "T"
+run = "shell --block -- tmux-project %h"
+desc = "Open the hovered project's tmux session"

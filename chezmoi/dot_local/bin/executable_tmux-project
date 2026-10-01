@@ -6,7 +6,7 @@
 #
 # Usage:
 #   tmux-project              # project containing the current directory
-#   tmux-project vesopt       # zoxide query (or a directory path)
+#   tmux-project vesopt       # zoxide query (or a path; a file uses its directory)
 #   tmux-project --pick       # choose a project with fzf (tmux: M-f p)
 
 # Projects offered by --pick
@@ -28,8 +28,12 @@ def pick [] {
 
 def resolve [query: list<string>] {
     if ($query | is-empty) { return $env.PWD }
-    if ($query | length) == 1 and ($query.0 | path type) == dir {
-        return ($query.0 | path expand)
+    if ($query | length) == 1 {
+        let p = $query.0 | path expand
+        match ($p | path type) {
+            dir => { return $p }
+            file => { return ($p | path dirname) }  # e.g. hovered in yazi
+        }
     }
     let found = ^zoxide query -- ...$query | complete
     if $found.exit_code != 0 {
@@ -39,7 +43,7 @@ def resolve [query: list<string>] {
 }
 
 def main [
-    ...query: string  # zoxide keywords or a directory; default: current directory
+    ...query: string  # zoxide keywords or a path; default: current directory
     --pick            # choose from ~/files/*/* with fzf
 ] {
     let dir = if $pick { pick } else { resolve $query }

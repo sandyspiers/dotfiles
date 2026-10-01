@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-log() { echo "==> $*"; }
+source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
 
 # ── docker ────────────────────────────────────────────────────────────────────
 
@@ -55,4 +55,4 @@ install_distrobox
 create_arch_container
 
 log "Done! Enter the container with: distrobox enter arch"
-log "Then bootstrap as normal: git clone https://github.com/sandyspiers/dotfiles.git && bash dotfiles/bootstrap.sh"
+log "Then bootstrap as normal: git clone https://github.com/sandyspiers/dotfiles.git && bash dotfiles/setup/bootstrap.sh"

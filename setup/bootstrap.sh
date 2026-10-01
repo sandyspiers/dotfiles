@@ -1,17 +1,13 @@
 #!/bin/bash
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-log() { echo "==> $*"; }
+source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
 
 # AUR builds (makepkg) refuse to run as root
 if [ "$EUID" -eq 0 ]; then
     echo "Error: run as a regular user with sudo access, not as root." >&2
     exit 1
 fi
-
-pkgs() { grep -Ev '^\s*(#|$)' "$SCRIPT_DIR/packages/$1"; }
 
 # ── install ───────────────────────────────────────────────────────────────────
 

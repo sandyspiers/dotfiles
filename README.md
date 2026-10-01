@@ -66,37 +66,37 @@ default=sandy
 
 #### Once logged in
 
-Install git and clone this repo anywhere, then run `bootstrap.sh`.
+Install git and clone this repo anywhere, then run `setup/bootstrap.sh`.
 
 ```bash
 git clone https://github.com/sandyspiers/dotfiles.git
 cd dotfiles
-bash bootstrap.sh
+bash setup/bootstrap.sh
 ```
 
-This installs all packages from [`packages/dev.txt`](./packages/dev.txt).
+This installs all packages from [`setup/packages/dev.txt`](./setup/packages/dev.txt).
 
 #### Optional extras
 
 These are not included in the base bootstrap and must be run separately:
 
 ```bash
-bash julia.sh  # julia (via juliaup), JETLS, JuliaFormatter, Runic
-bash latex.sh  # texlive, biber, zathura, fonts
+bash setup/julia.sh  # julia (via juliaup), JETLS, JuliaFormatter, Runic
+bash setup/latex.sh  # texlive, biber, zathura, fonts
 ```
 
 ### Ubuntu (via Distrobox)
 
-`bootstrap.sh` only supports Arch. On Ubuntu, the recommended approach is to run an
+`setup/bootstrap.sh` only supports Arch. On Ubuntu, the recommended approach is to run an
 Arch container via [Distrobox](https://distrobox.it), which shares your home directory
 so dotfiles apply to both host and container.
 
 First, install Docker by following the [official Ubuntu instructions](https://docs.docker.com/engine/install/ubuntu/).
 
-Then run `ubuntu.sh` to install Distrobox and create the Arch container:
+Then run `setup/ubuntu.sh` to install Distrobox and create the Arch container:
 
 ```bash
-bash ubuntu.sh
+bash setup/ubuntu.sh
 ```
 
 Enter the container and bootstrap as normal:
@@ -104,7 +104,7 @@ Enter the container and bootstrap as normal:
 ```bash
 distrobox enter arch
 git clone https://github.com/sandyspiers/dotfiles.git
-cd dotfiles && bash bootstrap.sh
+cd dotfiles && bash setup/bootstrap.sh
 ```
 
 Bootstrapping does not change the container's login shell. To use nushell, enter with:
@@ -122,7 +122,7 @@ distrobox-export --bin $(which lazygit)
 
 #### Notes
 
-- `bootstrap.sh` clones the chezmoi dotfiles over HTTPS — if you plan to push changes, update the remote afterwards.
-- Julia apps (`JETLS`, `JuliaFormatter`, `Runic`) are installed separately via `julia.sh`
+- `setup/bootstrap.sh` clones the chezmoi dotfiles over HTTPS — if you plan to push changes, update the remote afterwards.
+- Julia apps (`JETLS`, `JuliaFormatter`, `Runic`) are installed separately via `setup/julia.sh`
   with `Pkg.Apps.add`. Manage them afterwards from the Julia REPL with
   `pkg> app add`, `app update`, `app status` and `app rm`.

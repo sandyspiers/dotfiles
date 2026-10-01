@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-log() { echo "==> $*"; }
+source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
 
 log "Setting up Julia..."
 juliaup add release

@@ -120,7 +120,8 @@ distrobox-export --bin $(which lazygit)
 
 #### Notes
 
-- `setup/bootstrap.sh` clones the chezmoi dotfiles over HTTPS — if you plan to push changes, update the remote afterwards.
+- `setup/bootstrap.sh` clones the chezmoi dotfiles over HTTPS. Pushing works once you run `gh auth login`;
+  git gets GitHub credentials from `gh`.
 - Julia apps (`JETLS`, `JuliaFormatter`, `Runic`) are installed separately via `setup/julia.sh`
   with `Pkg.Apps.add`. Manage them afterwards from the Julia REPL with
   `pkg> app add`, `app update`, `app status` and `app rm`.

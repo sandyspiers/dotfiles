@@ -1,15 +1,5 @@
-# Loaded by interactive/login shells (nu -l); note plain `nu -c` skips this file
+# Nu-only environment. Everything else (PATH, EDITOR, ...) is exported by
+# ~/.bash_profile and inherited, so non-nu processes see it too.
 
-# Environment variables
-$env.SHELL = "nu"
-$env.EDITOR = "nvim"
-$env.JULIA_SHELL = "bash"
-
-# PATH is managed here and only here (nu is the single source of truth);
-# uniq keeps nested shells from stacking duplicates
-$env.PATH = ($env.PATH
-    | prepend "/usr/bin/vendor_perl"     # perl (mostly just for biber)
-    | prepend $"($env.HOME)/.julia/bin"  # julia apps (jetls, runic)
-    | prepend $"($env.HOME)/.local/bin"  # own scripts
-    | uniq)
-
+# Programs that start $SHELL (nvim :terminal, yazi) get nu, by full path
+$env.SHELL = $nu.current-exe

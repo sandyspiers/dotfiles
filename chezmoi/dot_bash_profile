@@ -1,0 +1,6 @@
+export PATH="$HOME/.julia/bin:$PATH"  # julia apps (jetls, runic)
+export PATH="$HOME/.local/bin:$PATH"  # own scripts
+
+export EDITOR=nvim
+export VISUAL=nvim
+export JULIA_SHELL=bash

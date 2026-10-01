@@ -59,6 +59,19 @@ create_dirs() {
     done
 }
 
+setup_ssh_agent() {
+    # no systemd (e.g. distrobox container) -> no user agent socket
+    if [ ! -d /run/systemd/system ]; then
+        log "No systemd; skipping ssh-agent socket..."
+        return
+    fi
+
+    # socket-activated agent at $XDG_RUNTIME_DIR/ssh-agent.socket,
+    # which ~/.bash_profile exports as SSH_AUTH_SOCK
+    log "Enabling ssh-agent socket..."
+    systemctl --user enable --now ssh-agent.socket
+}
+
 setup_mirrors() {
     # no systemd (e.g. distrobox container) -> keep manual mirror-update only
     if [ ! -d /run/systemd/system ]; then
@@ -86,6 +99,7 @@ bootstrap
 setup_dotfiles
 install_tpm
 create_dirs
+setup_ssh_agent
 setup_mirrors
 
 log "Done!"

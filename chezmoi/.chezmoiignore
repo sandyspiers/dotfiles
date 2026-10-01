@@ -1,3 +1,4 @@
 .config/nushell/history.txt
 .config/zellij/plugins
 .julia/environments/LanguageServer/Manifest.toml
+.config/nvim/lazy-lock.json

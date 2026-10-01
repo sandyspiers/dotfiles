@@ -22,8 +22,6 @@ My approach to keybindings is as follows,
    should have a chord-able keybinding.
 1. Everything else should be sequence of keys, like a tap-dance, with nemonics
 
-See more in [KEYBINDS.md](./KEYBINDS.md)
-
 ## Install
 
 At the moment we only support Arch.

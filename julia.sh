@@ -1,13 +1,12 @@
 #!/bin/bash
 set -euo pipefail
 
-export PATH="$HOME/.local/bin:$PATH"
-
 log() { echo "==> $*"; }
 
 log "Setting up Julia..."
 juliaup add release
-julia-app --url https://github.com/aviatesk/JETLS.jl --rev release
-julia-app JuliaFormatter Runic
+julia -e 'using Pkg
+    Pkg.Apps.add(url="https://github.com/aviatesk/JETLS.jl", rev="release")
+    Pkg.Apps.add(["JuliaFormatter", "Runic"])'
 
 log "Done!"

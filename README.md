@@ -123,6 +123,6 @@ distrobox-export --bin $(which lazygit)
 #### Notes
 
 - `bootstrap.sh` clones the chezmoi dotfiles over HTTPS — if you plan to push changes, update the remote afterwards.
-- Julia apps (`JETLS`, `JuliaFormatter`, `Runic`) are installed separately via `julia.sh`,
-  which uses the `julia-app` helper (a nushell wrapper around `Pkg.Apps.add`,
-  installed to `~/.local/bin` by chezmoi).
+- Julia apps (`JETLS`, `JuliaFormatter`, `Runic`) are installed separately via `julia.sh`
+  with `Pkg.Apps.add`. Manage them afterwards from the Julia REPL with
+  `pkg> app add`, `app update`, `app status` and `app rm`.

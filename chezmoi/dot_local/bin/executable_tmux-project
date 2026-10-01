@@ -1,0 +1,61 @@
+#!/usr/bin/env nu
+
+# Open the tmux session for a project: one session per project, named after
+# its root (the git top level, else the directory) and started there.
+# Attaches from outside tmux, switches from inside.
+#
+# Usage:
+#   tmux-project              # project containing the current directory
+#   tmux-project vesopt       # zoxide query (or a directory path)
+#   tmux-project --pick       # choose a project with fzf (tmux: M-f p)
+
+# Projects offered by --pick
+def projects [] {
+    glob $"($env.HOME)/files/*/*" --no-file
+    | append $"($env.HOME)/.local/share/chezmoi"
+}
+
+def pick [] {
+    let home = $env.HOME
+    let choice = projects
+        | each { str replace $home "~" }
+        | str join "\n"
+        | ^fzf --prompt "project> "
+        | complete
+    if $choice.exit_code != 0 { exit 0 }  # cancelled
+    $choice.stdout | str trim | path expand
+}
+
+def resolve [query: list<string>] {
+    if ($query | is-empty) { return $env.PWD }
+    if ($query | length) == 1 and ($query.0 | path type) == dir {
+        return ($query.0 | path expand)
+    }
+    let found = ^zoxide query -- ...$query | complete
+    if $found.exit_code != 0 {
+        error make --unspanned { msg: $"no zoxide match for: ($query | str join ' ')" }
+    }
+    $found.stdout | str trim
+}
+
+def main [
+    ...query: string  # zoxide keywords or a directory; default: current directory
+    --pick            # choose from ~/files/*/* with fzf
+] {
+    let dir = if $pick { pick } else { resolve $query }
+    let top = ^git -C $dir rev-parse --show-toplevel | complete
+    let root = if $top.exit_code == 0 { $top.stdout | str trim } else { $dir }
+
+    let name = $root | path basename
+    # =name: is an exact session match; a bare `VesOpt.jl` parses as pane `jl`
+    let target = $"=($name):"
+
+    if (^tmux has-session -t $target | complete).exit_code != 0 {
+        ^tmux new-session -d -s $name -c $root
+    }
+    if ($env.TMUX? | is-empty) {
+        ^tmux attach-session -t $target
+    } else {
+        ^tmux switch-client -t $target
+    }
+}

@@ -1,4 +1,5 @@
 alias jl = julia -q --project --threads auto
+alias j = jl
 alias jlq = jl --startup-file=no
 
 # Generate a new package in ./<name>

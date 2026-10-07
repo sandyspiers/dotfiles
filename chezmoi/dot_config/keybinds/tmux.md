@@ -21,6 +21,7 @@
 | `M-i` / `M-o` | Previous / next window | `M-I` / `M-O` | Swap window left / right |
 | `M-c` | New window | `M-q` | Kill window (asks) |
 | `M-r` | Rename window | `M-w` | Session / window tree |
+| `` M-` `` | Last session (toggle) | | |
 | `M-d` | Detach | `M-/` | Copy mode |
 
 ## Floating runners (`M-f`, then key)
@@ -44,7 +45,7 @@
 | Open the project you are in | `t` |
 | Open a project by zoxide keywords | `t vesopt` |
 | Open any project from inside tmux | `M-f p` |
-| Switch between open projects | `M-w`, or `M-;` `a` for the last one |
+| Switch between open projects | `M-w`, or `` M-` `` for the last one |
 | Reconnect after closing the terminal | `tmux attach` |
 
 ## Prefix (`M-;`, then key)

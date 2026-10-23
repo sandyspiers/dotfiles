@@ -7,3 +7,9 @@ def jlg [name: string] {
     let cmd = $"using Pkg; Pkg.generate\(\"($name)\"\)"
     julia -e $cmd
 }
+
+# test a package
+def jlt [] {
+    let cmd = "using Pkg; Pkg.test\(\)"
+    julia -q --project --threads auto -e $cmd
+}
